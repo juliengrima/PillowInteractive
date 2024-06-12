@@ -1,0 +1,76 @@
+body {
+    height: 100%;
+    background-color: #464646;
+    color: aliceblue;
+    font-size: 1.5rem;
+}
+
+@media only screen and (max-device-width: 1366px) {
+    .parallax {
+      background-attachment: scroll;
+    }
+  }
+
+/**************** GENERAL ***************/
+ul {
+    list-style-type: none !important;
+}
+
+
+
+a {
+    color: aliceblue;
+}
+a:hover {
+    color: darkgray;
+}
+
+i {
+    font-size: 2em;
+}
+
+
+/**************** NAVBAR ***************/
+.navbar-brand img {
+    width: 8%;  /* Changez la taille selon vos besoins */
+    height: auto; /* Maintient le ratio de l'image */
+    margin-right: 2%; /* Espace entre l'image et le texte */
+  }
+
+/**************** PARALLAX ***************/
+.block-div {
+    height:500px;
+    background-color: #121212;
+}
+
+.parallax-container {
+    height: 100vh; /* Utiliser la hauteur de la fenêtre */
+    overflow: hidden; /* Pour cacher les débordements */
+    position: relative;
+}
+
+.parallax-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    will-change: transform; /* Optimisation des performances */
+}
+
+.swiper-container {
+    height: 100%;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.swiper-slide img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}

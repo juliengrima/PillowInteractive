@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{asset('home')}}">
+         <img src="{{asset('images/logoTransparent.png')}}" alt="Logo">
+        Pillow Interactive</a>
+        {# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button> #}
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{asset('home')}}">Accueil</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Jeux
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Studio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">contact</a>
+              </li>
+          </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block footer %}
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <ul claas="list">
+          <li class=""><a href="#">Formulaire de contact</a></li>
+          <li class=""><a href="mailto:contact@pillow-interactive.fr">contact@pillow-interactive.fr</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul claas="list">
+          <li class=""><a href="#">Conditions d'utilisation</a></li>
+          <li class=""><a href="#">Politique de confidentialité</a></li>
+          <li class=""><a href="#">Conditions d'utilisation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div clas="row">
+      <div class="text-center">
+        <p><i class="fa-regular fa-copyright"></i> Pillow Interactive. Tous droits réservés.</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
