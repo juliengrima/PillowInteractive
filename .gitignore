@@ -22,4 +22,7 @@
 ###> symfony/asset-mapper ###
 /public/assets/
 /assets/vendor/
+
+.DS_Store
+
 ###< symfony/asset-mapper ###
