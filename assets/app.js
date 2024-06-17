@@ -1,7 +1,6 @@
 // import './bootstrap.js';
 import './controllers/jquery_3_min.js'
 import './controllers/jquery_ui.js'
-// import './controllers/materialize.js'
 import './controllers/main.js'
 /*
  * Welcome to your app's main JavaScript file!
@@ -10,5 +9,6 @@ import './controllers/main.js'
  * which should already be in your base.html.twig.
  */
 // import './styles/materialize.css'
+import './styles/fontawesome.css';
 import './styles/app.css';
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

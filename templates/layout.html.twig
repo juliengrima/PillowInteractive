@@ -5,7 +5,8 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="{{asset('home')}}">
          <img src="{{asset('images/logoTransparent.png')}}" alt="Logo">
-        Pillow Interactive</a>
+        <span class="logo-span">Pillow Interactive</span>
+        </a>
         {# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button> #}
@@ -38,16 +39,21 @@
 {% endblock %}
 
 {% block footer %}
-  <div class="container">
+  <div class="container bg-dark footer-top">
     <div class="row">
-      <div class="col">
-        <ul claas="list">
-          <li class=""><a href="#">Formulaire de contact</a></li>
-          <li class=""><a href="mailto:contact@pillow-interactive.fr">contact@pillow-interactive.fr</a></li>
-        </ul>
+      <div class="col margin-footer-col">
+        <form class="margin-form form-inline">
+            <div class="form-group mb-2">
+              <label for="exampleInputEmail1">Abonnez-vous à la newsletter et restez à l'écoute.</label></br> 
+              <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre e-mail avec les autres.</small></br>
+              <input type="email" class="form-control input-width" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <button type="submit" class="btn btn-primary button-top">Submit</button>
+        </form>
       </div>
-      <div class="col">
+      <div class="col margin-footer-col">
         <ul claas="list">
+          <li class=""><a href="mailto:contact@pillow-interactive.fr">contact@pillow-interactive.fr</a></li>
           <li class=""><a href="#">Conditions d'utilisation</a></li>
           <li class=""><a href="#">Politique de confidentialité</a></li>
           <li class=""><a href="#">Conditions d'utilisation</a></li>
@@ -56,8 +62,18 @@
     </div>
     <div clas="row">
       <div class="text-center">
-        <p><i class="fa-regular fa-copyright"></i> Pillow Interactive. Tous droits réservés.</p>
+        <div class="col">   
+        </div>
+        <div class="col">
+          <p><i class="fa-regular fa-copyright"></i> Pillow Interactive. Tous droits réservés.</p>
+        </div>
       </div>
     </div>
   </div>
+
+{# {{ form_start(form) }}
+{{ form_widget(form.provider) }}
+{{ form_errors(form.provider) }}
+<input type="submit" value="Valider" class="submit-center"/>
+{{ form_end(form) }} #}
 {% endblock %}
