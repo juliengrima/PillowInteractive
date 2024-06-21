@@ -16,8 +16,6 @@ ul {
     list-style-type: none !important;
 }
 
-
-
 a {
     color: aliceblue;
 }
@@ -30,10 +28,11 @@ a:hover {
 }
 /**************** NAVBAR ***************/
 .navbar-brand img {
-    width: 8%;  /* Changez la taille selon vos besoins */
+    width: 15%;  /* Changez la taille selon vos besoins */
     height: auto; /* Maintient le ratio de l'image */
     margin-right: 2%; /* Espace entre l'image et le texte */
-  }
+    margin-left: 3%;
+}
 
 .logo-span {
     margin: auto;
