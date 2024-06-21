@@ -39,14 +39,7 @@
   <div class="container bg-dark footer-top">
     <div class="row">
       <div class="col margin-footer-col">
-        <form class="margin-form form-inline">
-            <div class="form-group mb-2">
-              <label for="exampleInputEmail1">Abonnez-vous à la newsletter et restez à l'écoute.</label></br> 
-              <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre e-mail avec les autres.</small></br>
-              <input type="email" class="form-control input-width" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
-            <button type="submit" class="btn btn-primary button-top">Submit</button>
-        </form>
+        {{ render(controller('App\\Controller\\NewsLettersController::new')) }}
       </div>
       <div class="col margin-footer-col">
         <ul claas="list">

@@ -1,4 +1,13 @@
-{{ form_start(form) }}
+{# {{ form_start(form) }}
     {{ form_widget(form) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }} #}
+
+{{ form_start(form, { 'attr': {'class': 'margin-form form-inline'} }) }}
+    <div class="form-group mb-2">
+        {{ form_label(form.email) }}<br>
+        <small id="emailHelp" class="form-text text-muted">{{ form_help(form.email) }}</small><br>
+        {{ form_widget(form.email) }}
+    </div>
+    {{ form_widget(form.submit, { 'attr': { 'class': 'btn btn-primary button-top' } }) }}
 {{ form_end(form) }}
