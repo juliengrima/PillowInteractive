@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ZonesText{% endblock %}
+
+{% block body %}
+    <h1>Edit ZonesText</h1>
+
+    {{ include('zones_text/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_zones_text_index') }}">back to list</a>
+
+    {{ include('zones_text/_delete_form.html.twig') }}
+{% endblock %}
