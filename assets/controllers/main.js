@@ -18,3 +18,20 @@ document.addEventListener('DOMContentLoaded', function() {
         parallaxContent.style.transform = `translateY(${scrollPosition * parallaxSpeed}px)`;
     });
 });
+
+$(document).ready(function() {
+    $('#parallax').mousemove(function(e) {
+        // Récupérer la largeur et la hauteur du conteneur parallax
+        var w = $(this).width();
+        var h = $(this).height();
+
+        // Calculer le décalage parallax en fonction de la position de la souris
+        var offsetX = 0.5 - e.pageX / w; // Valeur entre -0.5 et 0.5
+        var offsetY = 0.5 - e.pageY / h; // Valeur entre -0.5 et 0.5
+
+        // Appliquer le décalage parallax au contenu parallax
+        $('.parallax-mouse-content').css({
+            'transform': 'translate(' + offsetX * 50 + 'px, ' + offsetY * 50 + 'px)'
+        });
+    });
+});

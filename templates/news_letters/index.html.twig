@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block title %}NewsLetters index{% endblock %}
 
@@ -20,7 +20,7 @@
                 <td>{{ news_letter.email }}</td>
                 <td>
                     <a href="{{ path('app_news_letters_show', {'id': news_letter.id}) }}">show</a>
-                    <a href="{{ path('app_news_letters_edit', {'id': news_letter.id}) }}">edit</a>
+                    {# <a href="{{ path('app_news_letters_edit', {'id': news_letter.id}) }}">edit</a> #}
                 </td>
             </tr>
         {% else %}

@@ -14,20 +14,21 @@ class NewsLettersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class, [
-                'label' => 'Abonnez-vous à la newsletter et restez à l\'écoute.',
-                'attr' => [
-                    'class' => 'form-control input-width',
-                    'placeholder' => 'Enter email',
-                    'aria-describedby' => 'emailHelp'
-                ],
-                'help' => 'Nous ne partagerons jamais votre e-mail avec les autres.'
-            ])
-
-            ->add('submit', SubmitType::class, [
-                'label' => 'Submit',
-                'attr' => ['class' => 'btn btn-primary button-top']
-            ]);
+            // ->add('email', EmailType::class, [
+            //     'label' => 'Subscribe to the newsletter and stay tuned.',
+            //     'attr' => [
+            //         'class' => 'form-control input-width',
+            //         'placeholder' => 'Enter your email',
+            //         'aria-describedby' => 'emailHelp'
+            //     ],
+            //     'help' => 'We will never share your email with others.'
+            // ])
+            ->add('email')
+            // ->add('submit', SubmitType::class, [
+            //     'label' => 'Submit',
+            //     'attr' => ['class' => 'btn btn-primary button-top']
+            // ])
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

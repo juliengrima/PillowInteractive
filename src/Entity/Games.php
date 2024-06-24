@@ -25,7 +25,7 @@ class Games
     /**
      * @var Collection<int, Images>
      */
-    #[ORM\OneToMany(targetEntity: Images::class, mappedBy: 'texts')]
+    #[ORM\OneToMany(targetEntity: Images::class, mappedBy: 'gameImage')]
     private Collection $images;
 
     /**

@@ -30,41 +30,25 @@ class NewsLettersController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            try{
+            var_dump($newsLetter);
             $entityManager->persist($newsLetter);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_news_letters_index', [], Response::HTTP_SEE_OTHER);
+            $this->addFlash('success', 'Vous êtes abonné à la newsletter avec succès.');
+
+            return $this->redirectToRoute('home');
+
+        }catch (\Exception $e) {
+                // Message d'erreur
+                $this->addFlash('error', 'Une erreur est survenue lors de votre abonnement à la newsletter.');
+            }
         }
 
+        // return $this->redirectToRoute('home');
         return $this->render('news_letters/new.html.twig', [
             'news_letter' => $newsLetter,
-            'form' => $form,
-        ]);
-    }
-
-    #[Route('/{id}', name: 'app_news_letters_show', methods: ['GET'])]
-    public function show(NewsLetters $newsLetter): Response
-    {
-        return $this->render('news_letters/show.html.twig', [
-            'news_letter' => $newsLetter,
-        ]);
-    }
-
-    #[Route('/{id}/edit', name: 'app_news_letters_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, NewsLetters $newsLetter, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(NewsLettersType::class, $newsLetter);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_news_letters_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('news_letters/edit.html.twig', [
-            'news_letter' => $newsLetter,
-            'form' => $form,
+            'form' => $form, 
         ]);
     }
 

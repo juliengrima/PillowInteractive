@@ -1,7 +1,18 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block title %}New NewsLetters{% endblock %}
 
 {% block body %}
-    {{ include('news_letters/_form.html.twig') }}
+<div id="parallax-container" class="parallax-container">
+    <div class="parallax-content">
+    <img src="{{asset('images/jeux/image2jeu2.jpg')}}" class="img-parallax">
+        <div class="parallax-mouse-container" id="parallax">
+            <div class="parallax-mouse-content">
+                <div class="form-container">
+                    {{ include('news_letters/_form.html.twig') }}
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
 {% endblock %}

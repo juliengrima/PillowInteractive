@@ -1,0 +1,26 @@
+# translations/messages.fr.yaml
+# ------ HEADER
+Home: Accueill
+# ------ DROPS DOWN
+# ----------------- Administrator
+Dashboard: Administration
+New Game: Nouveau jeu
+Administrators: Administrateur
+News Letter: News Letter
+# ----------------- Users
+Games: Jeux
+# ------ FOOTER
+Subscribe to the news letter: M'abonner à la news letter
+# ------ NEWS LETTER
+Subscribe to the newsletter and stay tuned.: Abonnez-vous à la newsletter et restez à l'écoute.
+We will never share your email with others.: Nous ne partagerons jamais votre e-mail avec les autres.
+Enter your email: Entrez votre email
+Submit: Valider
+# ------ GAMES
+# ----------------- Index
+New game: Nouveau jeu 
+Game's name: Nom du jeu
+Show: Montrer
+Edit: Editer
+
+

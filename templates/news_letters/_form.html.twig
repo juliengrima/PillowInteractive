@@ -3,11 +3,38 @@
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }} #}
 
-{{ form_start(form, { 'attr': {'class': 'margin-form form-inline'} }) }}
+{# ----------------------------------------------- #}
+
+{# {{ form_start(form, { 'attr': {'class': 'margin-form form-inline'} }) }}
     <div class="form-group mb-2">
         {{ form_label(form.email) }}<br>
         <small id="emailHelp" class="form-text text-muted">{{ form_help(form.email) }}</small><br>
         {{ form_widget(form.email) }}
     </div>
     {{ form_widget(form.submit, { 'attr': { 'class': 'btn btn-primary button-top' } }) }}
+{{ form_end(form) }} #}
+
+{# ----------------------------------------------- #}
+
+
+{{ form_start(form, {'attr': {'class': 'margin-form form-inline'}}) }}
+    <div class="form-group mb-2">
+        <label for="newsletter_email">{{ 'Subscribe to the newsletter and stay tuned.'|trans }}</label><br> 
+        <small id="emailHelp" class="form-text text-muted small">{{ 'We will never share your email with others.'|trans }}</small><br>
+        {{ form_widget(form.email, {'attr': {'class': 'form-control input-width', 'placeholder': 'Enter your email'|trans }}) }}
+    </div>
+    <button type="submit" class="btn btn-primary button-top">{{ 'Submit'|trans }}</button>
 {{ form_end(form) }}
+
+{# ----------------------------------------------- #}
+
+ {# <form action="{{ path('app_news_letters_new') }}" method="post" class="margin-form form-inline">
+        <div class="form-group mb-2">
+            <label for="email">{{ 'Subscribe to the newsletter and stay tuned.'|trans }}</label>
+            <br>
+            <small id="emailHelp" class="form-text text-muted">{{ 'We will never share your email with others.'|trans }}</small>
+            <br>
+            <input type="email" class="form-control input-width" id="email" name="email" aria-describedby="emailHelp" placeholder="{{ 'Enter your email'|trans }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary button-top">{{ 'Submit'|trans }}</button>
+    </form> #}

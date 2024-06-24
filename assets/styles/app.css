@@ -26,16 +26,17 @@ a:hover {
 .footer-top {
     margin-top: 2%;
 }
-/**************** NAVBAR ***************/
-.navbar-brand img {
-    width: 15%;  /* Changez la taille selon vos besoins */
-    height: auto; /* Maintient le ratio de l'image */
-    margin-right: 2%; /* Espace entre l'image et le texte */
-    margin-left: 3%;
-}
 
-.logo-span {
-    margin: auto;
+.text-muted {
+    --bs-text-opacity: 1;
+    color: #BEBDBD !important;
+}
+/**************** NAVBAR ***************/
+.navbar-brand img{
+    width: 15%;  
+    height: auto; 
+    margin-right: 2%; 
+    margin-left: 3%;
 }
 
 .input-width {
@@ -75,6 +76,32 @@ a:hover {
     will-change: transform; /* Optimisation des performances */
 }
 
+.parallax-mouse-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Place le parallax mouse au-dessus de l'image */
+    overflow: hidden;
+}
+
+.parallax-mouse-content {
+    position: relative;
+    z-index: 1; /* Assure que le contenu est visible au-dessus du parallax mouse */
+    text-align: center;
+    padding: 20% 10%; /* Ajustez le padding selon vos besoins */
+    color: #fff; /* Couleur du texte */
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour mettre en avant le form-container */
+}
+
+.img-parallax {
+    display: block;
+    width: 100%;
+    height: auto; /* Assurez-vous que l'image est responsive */
+}
+
+
 /**************** SLIDER ***************/
 
 .swiper-container {
@@ -107,4 +134,67 @@ a:hover {
     text-align: center;
 }
 
-/**************** SUPERPOSITION ***************/
+/**************** CONTAINER ***************/
+
+/* CSS pour le contenu du formulaire */
+.form-container {
+    margin-top: 0%;
+    margin-left: 30%;
+    width: 100%; /* Ou une largeur spécifique comme 50% */
+    max-width: 600px; /* Largeur maximale */
+    background: #6E6E6E; /* Arrière-plan du formulaire */
+    padding: 20px; /* Espace interne */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour l'effet visuel */
+    border-radius: 10px; /* Arrondir les bords */
+}
+
+/* Optionnel : ajuster les styles du formulaire */
+form {
+    display: block;
+    flex-direction: column; /* Colonne pour les enfants */
+    gap: 15px; /* Espacement entre les éléments */
+}
+
+
+/**************** ADMINITRATION PAGES ***************/
+
+.admin-container {
+    padding-top: 12%;
+    background-color: #6E6E6E;
+}
+
+/**************** GAME PAGE ***************/
+
+.page-container {
+    width: 100%;
+}
+
+.section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.text-container {
+    width: 45%;
+    margin: 10px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+}
+
+.text-container.left {
+    text-align: left;
+    align-self: flex-start;
+}
+
+.text-container.right {
+    text-align: right;
+    align-self: flex-end;
+}

@@ -8,6 +8,44 @@ home:
    path: /
    controller: App\Controller\HomeController::index
 
-newsletter:
-   path: /newsletter
-   controller: App\Controller\NewsLettersController::new
+# NEWS LETTERS
+app_news_letters_index:
+    path: /newsletters
+    controller: App\Controller\NewsLettersController::index
+    methods:  GET
+
+app_news_letters_new:
+    path: /newsletters/new
+    controller: App\Controller\NewsLettersController::new
+    methods:  [GET, POST]
+
+app_news_letters_delete:
+    path: /newsletters/delete
+    controller: App\Controller\NewsLettersController::delete
+    methods:  DELETE
+
+# GAMES
+app_games_index:
+    path: /games/
+    controller: App\Controller\GamesController::index
+    methods:  [GET]
+
+app_games_new:
+    path: /games/new
+    controller: App\Controller\GamesController::new
+    methods:  [GET, POST]
+
+app_games_edit:
+    path: /games/edit/{id}
+    controller: App\Controller\GamesController::edit
+    methods:  [GET, POST]
+
+app_games_show:
+    path: /games/{id}/{name}
+    controller: App\Controller\GamesController::show
+    methods:  [GET]
+
+app_games_delete:
+    path: /games/delete
+    controller: App\Controller\GamesController::delete
+    methods:  DELETE

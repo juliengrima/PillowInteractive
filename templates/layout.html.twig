@@ -4,23 +4,21 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{asset('home')}}">
-         <img src="{{asset('images/logo-transparent.png')}}" alt="Logo">
-         {# <span class="logo-span">Netherion Game</span> #}
+         <img src="{{asset('images/logo-transparent.png')}}" alt="Logo" class="logo-image">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{asset('home')}}">Accueil</a>
+                <a class="nav-link active" aria-current="page" href="{{asset('home')}}">{{ 'Home'|trans }}</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Jeux
+                    {{ 'Games'|trans }}
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li><a class="dropdown-item" href="#">Jeux_1</a></li>
+                    <li><a class="dropdown-item" href="#">Jeux_2</a></li>
+                    <li><a class="dropdown-item" href="#">Jeux_3</a></li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -28,6 +26,17 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">contact</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ 'Dashboard'|trans }}
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">{{ 'Administrators'|trans }}</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{{ path('app_games_new') }}">{{ 'New Game'|trans }}</a></li>
+                    <li><a class="dropdown-item" href="#">{{ 'News Letter'|trans }}</a></li>
+                </ul>
               </li>
           </ul>
         </div>
@@ -39,7 +48,7 @@
   <div class="container bg-dark footer-top">
     <div class="row">
       <div class="col margin-footer-col">
-        {{ render(controller('App\\Controller\\NewsLettersController::new')) }}
+      <a href="{{ path('app_news_letters_new') }}">{{ 'Subscribe to the news letter'|trans }}</a>
       </div>
       <div class="col margin-footer-col">
         <ul claas="list">
@@ -60,10 +69,4 @@
       </div>
     </div>
   </div>
-
-{# {{ form_start(form) }}
-{{ form_widget(form.provider) }}
-{{ form_errors(form.provider) }}
-<input type="submit" value="Valider" class="submit-center"/>
-{{ form_end(form) }} #}
 {% endblock %}
