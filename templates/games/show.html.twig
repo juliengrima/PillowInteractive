@@ -7,7 +7,7 @@
     <div class="admin-container">
         <blockquote class="blockquote text-center">
             <h2>{{ game.name }}</h2>
-            <p>{{ game.description }}</p>
+            <p>{{ game.descriptio }}</p>
         </blockquote>
         <div class="row">
             <div class="col">
@@ -17,11 +17,9 @@
                             
                         {% endif %}
                         <div class="section" style="background-image: url('{{ asset(image.link) }}');">
-                            {% for zoneText in game.zoneTexts %}
-                                <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
-                                    <p>{{ zoneText.texts }}</p>
-                                </div>
-                            {% endfor %}
+                            <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
+                                <p>{{ image.texts }}</p>
+                            </div>
                         </div>
                     {% endfor %}
                 </div>
