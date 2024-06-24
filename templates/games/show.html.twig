@@ -7,43 +7,41 @@
     <div class="admin-container">
         <blockquote class="blockquote text-center">
             <h2>{{ game.name }}</h2>
-            <p>{{ game.descriptio }}</p>
+            <p>{{ game.description }}</p>
         </blockquote>
-        <div class="row">
-            <div class="col">
-                <div class="page-container">
-                    {% for image in game.images %}
-                        {% if image == true %}
-                            {% set extension = image.getExtension() %}
-                            {% if extension in ['png', 'jpg', 'jpeg', 'gif'] %}
-                                <div class="section" style="background-image: url('{{ asset(image.link) }}');">
-                                    <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
-                                        <p>{{ image.text }}</p>
-                                    </div>
-                                </div>
-                            {% elseif extension == 'mp4' %}
-                            <div class="section"> <div class="section">
-                                <video class="video-background" autoplay loop muted>
-                                    <source src="{{ asset(image.link) }}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
-                                    <p>{{ image.text }}</p>
-                                </div>
-                            </div>
-                            {% endif %}   
-                        {% else %}
-                            <div class="section">
-                                <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
-                                    <p>{{ image.text }}</p>
-                                </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
     </div>
+</div>
+<div class="row">
+        <div class="page-container">
+            {% for image in game.images %}
+                {% if image == true %}
+                    {% set extension = image.getExtension() %}
+                    {% if extension in ['png', 'jpg', 'jpeg', 'gif'] %}
+                        <div class="section" style="background-image: url('{{ asset(image.link) }}');">
+                            <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
+                                <p>{{ image.text }}</p>
+                            </div>
+                        </div>
+                    {% elseif extension == 'mp4' %}
+                    <div class="section"> <div class="section">
+                        <video class="video-background" autoplay loop muted>
+                            <source src="{{ asset(image.link) }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
+                            <p>{{ image.text }}</p>
+                        </div>
+                    </div>
+                    {% endif %}   
+                {% else %}
+                    <div class="section">
+                        <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
+                            <p>{{ image.text }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
 </div>
     <a href="{{ path('app_games_index') }}">back to list</a>
 

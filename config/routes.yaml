@@ -49,3 +49,24 @@ app_games_delete:
     path: /games/delete
     controller: App\Controller\GamesController::delete
     methods:  DELETE
+
+# IMAGES
+app_images_index:
+    path: /images/
+    controller: App\Controller\ImagesController::index
+    methods:  [GET]
+
+app_images_new:
+    path: /images/new
+    controller: App\Controller\ImagesController::new
+    methods:  [GET, POST]
+
+app_images_edit:
+    path: /images/edit/{id}
+    controller: App\Controller\ImagesController::edit
+    methods:  [GET, POST]
+
+app_platforms_delete:
+    path: /images/delete
+    controller: App\Controller\ImagesController::delete
+    methods: DELETE

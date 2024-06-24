@@ -22,21 +22,21 @@ class Games
     private ?string $description = null;
 
     /**
-     * @var Collection<int, Images>
-     */
-    #[ORM\OneToMany(targetEntity: Images::class, mappedBy: 'gameImage')]
-    private Collection $images;
-
-    /**
      * @var Collection<int, Platforms>
      */
     #[ORM\OneToMany(targetEntity: Platforms::class, mappedBy: 'gamePlateform')]
     private Collection $plateforms;
 
+    /**
+     * @var Collection<int, Images>
+     */
+    #[ORM\OneToMany(targetEntity: Images::class, mappedBy: 'gamesImages')]
+    private Collection $images;
+
     public function __construct()
     {
-        $this->images = new ArrayCollection();
         $this->plateforms = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -69,36 +69,6 @@ class Games
     }
 
     /**
-     * @return Collection<int, Images>
-     */
-    public function getImages(): Collection
-    {
-        return $this->images;
-    }
-
-    public function addImage(Images $image): static
-    {
-        if (!$this->images->contains($image)) {
-            $this->images->add($image);
-            $image->setTexts($this);
-        }
-
-        return $this;
-    }
-
-    public function removeImage(Images $image): static
-    {
-        if ($this->images->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getTexts() === $this) {
-                $image->setTexts(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection<int, Platforms>
      */
     public function getPlateforms(): Collection
@@ -122,6 +92,36 @@ class Games
             // set the owning side to null (unless already changed)
             if ($plateform->getGamePlateform() === $this) {
                 $plateform->setGamePlateform(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Images>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Images $image): static
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setGamesImages($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): static
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getGamesImages() === $this) {
+                $image->setGamesImages(null);
             }
         }
 

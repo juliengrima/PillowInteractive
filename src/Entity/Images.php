@@ -17,14 +17,14 @@ class Images
     #[ORM\Column(length: 255)]
     private ?string $link = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $name = null;
-
-    #[ORM\ManyToOne(inversedBy: 'images')]
-    private ?Games $gameImage = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $text = null;
+
+    #[ORM\ManyToOne(inversedBy: 'images')]
+    private ?Games $gamesImages = null;
 
     public function getId(): ?int
     {
@@ -43,31 +43,14 @@ class Images
         return $this;
     }
 
-    public function getExtension(): ?string
-    {
-        return pathinfo($this->link, PATHINFO_EXTENSION);
-    }
-
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(?string $name): static
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getTexts(): ?Games
-    {
-        return $this->gameImage;
-    }
-
-    public function setTexts(?Games $texts): static
-    {
-        $this->gameImage = $texts;
 
         return $this;
     }
@@ -80,6 +63,18 @@ class Images
     public function setText(?string $text): static
     {
         $this->text = $text;
+
+        return $this;
+    }
+
+    public function getGamesImages(): ?Games
+    {
+        return $this->gamesImages;
+    }
+
+    public function setGamesImages(?Games $gamesImages): static
+    {
+        $this->gamesImages = $gamesImages;
 
         return $this;
     }
