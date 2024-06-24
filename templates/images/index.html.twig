@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>Link</th>
                 <th>Name</th>
+                <th>Text</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                 <td>{{ image.id }}</td>
                 <td>{{ image.link }}</td>
                 <td>{{ image.name }}</td>
+                <td>{{ image.text }}</td>
                 <td>
                     <a href="{{ path('app_images_show', {'id': image.id}) }}">show</a>
                     <a href="{{ path('app_images_edit', {'id': image.id}) }}">edit</a>
@@ -27,7 +29,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
