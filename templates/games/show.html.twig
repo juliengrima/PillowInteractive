@@ -14,13 +14,18 @@
                 <div class="page-container">
                     {% for image in game.images %}
                         {% if image == true %}
-                            
-                        {% endif %}
-                        <div class="section" style="background-image: url('{{ asset(image.link) }}');">
-                            <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
-                                <p>{{ image.texts }}</p>
+                            <div class="section" style="background-image: url('{{ asset(image.link) }}');">
+                                <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
+                                    <p>{{ image.texts }}</p>
+                                </div>
                             </div>
-                        </div>
+                        {% else %}
+                            <div class="section">
+                                <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
+                                    <p>{{ image.texts }}</p>
+                                </div>
+                            </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
