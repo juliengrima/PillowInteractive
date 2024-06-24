@@ -14,15 +14,28 @@
                 <div class="page-container">
                     {% for image in game.images %}
                         {% if image == true %}
-                            <div class="section" style="background-image: url('{{ asset(image.link) }}');">
+                            {% set extension = image.getExtension() %}
+                            {% if extension in ['png', 'jpg', 'jpeg', 'gif'] %}
+                                <div class="section" style="background-image: url('{{ asset(image.link) }}');">
+                                    <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
+                                        <p>{{ image.text }}</p>
+                                    </div>
+                                </div>
+                            {% elseif extension == 'mp4' %}
+                            <div class="section"> <div class="section">
+                                <video class="video-background" autoplay loop muted>
+                                    <source src="{{ asset(image.link) }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
                                 <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
-                                    <p>{{ image.texts }}</p>
+                                    <p>{{ image.text }}</p>
                                 </div>
                             </div>
+                            {% endif %}   
                         {% else %}
                             <div class="section">
                                 <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
-                                    <p>{{ image.texts }}</p>
+                                    <p>{{ image.text }}</p>
                                 </div>
                             </div>
                         {% endif %}
@@ -30,7 +43,6 @@
                 </div>
             </div>
         </div>
-        
     </div>
 </div>
     <a href="{{ path('app_games_index') }}">back to list</a>

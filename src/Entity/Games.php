@@ -19,7 +19,6 @@ class Games
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
     /**
@@ -27,12 +26,6 @@ class Games
      */
     #[ORM\OneToMany(targetEntity: Images::class, mappedBy: 'gameImage')]
     private Collection $images;
-
-    /**
-     * @var Collection<int, ZonesText>
-     */
-    #[ORM\OneToMany(targetEntity: ZonesText::class, mappedBy: 'gameText')]
-    private Collection $text;
 
     /**
      * @var Collection<int, Platforms>
@@ -43,7 +36,6 @@ class Games
     public function __construct()
     {
         $this->images = new ArrayCollection();
-        $this->text = new ArrayCollection();
         $this->plateforms = new ArrayCollection();
     }
 
@@ -100,36 +92,6 @@ class Games
             // set the owning side to null (unless already changed)
             if ($image->getTexts() === $this) {
                 $image->setTexts(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, ZonesText>
-     */
-    public function getText(): Collection
-    {
-        return $this->text;
-    }
-
-    public function addText(ZonesText $text): static
-    {
-        if (!$this->text->contains($text)) {
-            $this->text->add($text);
-            $text->setGameText($this);
-        }
-
-        return $this;
-    }
-
-    public function removeText(ZonesText $text): static
-    {
-        if ($this->text->removeElement($text)) {
-            // set the owning side to null (unless already changed)
-            if ($text->getGameText() === $this) {
-                $text->setGameText(null);
             }
         }
 

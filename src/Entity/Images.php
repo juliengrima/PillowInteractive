@@ -43,6 +43,11 @@ class Images
         return $this;
     }
 
+    public function getExtension(): ?string
+    {
+        return pathinfo($this->link, PATHINFO_EXTENSION);
+    }
+
     public function getName(): ?string
     {
         return $this->name;
