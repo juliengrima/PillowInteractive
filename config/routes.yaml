@@ -62,7 +62,7 @@ app_images_new:
     methods:  [GET, POST]
 
 app_images_edit:
-    path: /images/edit/{id}
+    path: /images/{id}/edit
     controller: App\Controller\ImagesController::edit
     methods:  [GET, POST]
 
