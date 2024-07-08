@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\PlateFormsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: PlateFormsRepository::class)]
 class PlateForms
@@ -39,9 +41,16 @@ class PlateForms
     #[ORM\Column(length: 255)]
     private ?string $link = null;
 
-    #[ORM\ManyToOne(inversedBy: 'plateForms')]
-    private ?Games $game = null;
+    /**
+     * @var Collection<int, Games>
+     */
+    #[ORM\ManyToMany(targetEntity: Games::class, mappedBy: 'platform')]
+    private Collection $games;
 
+    public function __construct()
+    {
+        $this->games = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -72,15 +81,31 @@ class PlateForms
         return $this;
     }
 
-    public function getGame(): ?Games
+    /**
+     * @return Collection<int, Games>
+     */
+    public function getGames(): Collection
     {
-        return $this->game;
+        return $this->games;
     }
 
-    public function setGame(?Games $game): static
+    public function addGame(Games $game): static
     {
-        $this->game = $game;
+        if (!$this->games->contains($game)) {
+            $this->games->add($game);
+            $game->addPlatform($this);
+        }
 
         return $this;
     }
+
+    public function removeGame(Games $game): static
+    {
+        if ($this->games->removeElement($game)) {
+            $game->removePlatform($this);
+        }
+
+        return $this;
+    }
+
 }

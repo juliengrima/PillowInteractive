@@ -8,6 +8,7 @@ use App\Repository\GamesRepository;
 use App\Repository\PlateFormsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -16,7 +17,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class PlateFormsController extends AbstractController
 {
     #[Route('/', name: 'app_plate_forms_index', methods: ['GET'])]
-    public function index(PlateFormsRepository $plateFormsRepository, GamesRepository $games): Response
+    public function index(PlateFormsRepository $plateFormsRepository): Response
     {
         return $this->render('plate_forms/index.html.twig', [
             'plate_forms' => $plateFormsRepository->findAll(),
@@ -31,6 +32,25 @@ class PlateFormsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('link')->getData();
+
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // handle exception
+                }
+
+                $plateForm->setLink($newFilename);
+            }
+
             $entityManager->persist($plateForm);
             $entityManager->flush();
 
@@ -58,6 +78,24 @@ class PlateFormsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('link')->getData();
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // handle exception
+                }
+
+                $plateForm->setLink($newFilename);
+            }
+
             $entityManager->flush();
 
             return $this->redirectToRoute('app_plate_forms_index', [], Response::HTTP_SEE_OTHER);

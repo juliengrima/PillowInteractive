@@ -19,24 +19,25 @@ class Games
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    private ?string $description = null;
-
-    /**
-     * @var Collection<int, PlateForms>
-     */
-    #[ORM\OneToMany(targetEntity: PlateForms::class, mappedBy: 'game')]
-    private Collection $plateForms;
-
     /**
      * @var Collection<int, Images>
      */
     #[ORM\OneToMany(targetEntity: Images::class, mappedBy: 'game')]
     private Collection $images;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;
+
+    /**
+     * @var Collection<int, PlateForms>
+     */
+    #[ORM\ManyToMany(targetEntity: PlateForms::class, inversedBy: 'games')]
+    private Collection $platform;
+
     public function __construct()
     {
-        $this->plateForms = new ArrayCollection();
         $this->images = new ArrayCollection();
+        $this->platform = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -52,48 +53,6 @@ class Games
     public function setName(string $name): static
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(?string $description): static
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, PlateForms>
-     */
-    public function getPlateForms(): Collection
-    {
-        return $this->plateForms;
-    }
-
-    public function addPlateForm(PlateForms $plateForm): static
-    {
-        if (!$this->plateForms->contains($plateForm)) {
-            $this->plateForms->add($plateForm);
-            $plateForm->setGame($this);
-        }
-
-        return $this;
-    }
-
-    public function removePlateForm(PlateForms $plateForm): static
-    {
-        if ($this->plateForms->removeElement($plateForm)) {
-            // set the owning side to null (unless already changed)
-            if ($plateForm->getGame() === $this) {
-                $plateForm->setGame(null);
-            }
-        }
 
         return $this;
     }
@@ -124,6 +83,42 @@ class Games
                 $image->setGame(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, PlateForms>
+     */
+    public function getPlatform(): Collection
+    {
+        return $this->platform;
+    }
+
+    public function addPlatform(PlateForms $platform): static
+    {
+        if (!$this->platform->contains($platform)) {
+            $this->platform->add($platform);
+        }
+
+        return $this;
+    }
+
+    public function removePlatform(PlateForms $platform): static
+    {
+        $this->platform->removeElement($platform);
 
         return $this;
     }
