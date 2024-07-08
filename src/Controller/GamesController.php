@@ -47,6 +47,7 @@ class GamesController extends AbstractController
     {
         return $this->render('games/show.html.twig', [
             'game' => $game,
+            'plateForms' => $game->getPlateForms(),
         ]);
     }
 

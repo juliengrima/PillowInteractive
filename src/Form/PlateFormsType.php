@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Games;
 use App\Entity\PlateForms;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -14,6 +16,10 @@ class PlateFormsType extends AbstractType
         $builder
             ->add('name')
             ->add('link')
+            ->add('game', EntityType::class, [
+                'class' => Games::class,
+                'choice_label' => 'id',
+            ])
         ;
     }
 

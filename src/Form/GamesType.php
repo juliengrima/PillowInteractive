@@ -3,9 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Games;
+use App\Entity\PlateForms;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class GamesType extends AbstractType
 {
@@ -14,6 +16,12 @@ class GamesType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
+            // ->add('plateForms', EntityType::class, [
+            //     'class' => PlateForms::class,
+            //     'choice_label' => 'name',
+            //     'multiple' => true,
+            //     'expanded' => true, // Utilisez `false` si vous voulez une liste déroulante
+            // ])
         ;
     }
 

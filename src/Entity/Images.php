@@ -2,46 +2,25 @@
 
 namespace App\Entity;
 
-use App\Repository\PlateFormsRepository;
+use App\Repository\ImagesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: PlateFormsRepository::class)]
-class PlateForms
+#[ORM\Entity(repositoryClass: ImagesRepository::class)]
+class Images
 {
-    // Variable temporaire pour upload de fichier
-    private $file;
-
-    public function getFile()
-    {
-        return $this->file;
-    }
-
-    public function setFile($picture)
-    {
-        $this->file = $picture;
-        return $this;
-    }
-
-    function __toString()
-    {
-        return $this->getLink() . " | " . $this->getName();
-    }
-
-    // GENERATED CODE
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 30)]
+    #[ORM\Column(length: 255)]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
     private ?string $link = null;
 
-    #[ORM\ManyToOne(inversedBy: 'plateForms')]
+    #[ORM\ManyToOne(inversedBy: 'images')]
     private ?Games $game = null;
-
 
     public function getId(): ?int
     {

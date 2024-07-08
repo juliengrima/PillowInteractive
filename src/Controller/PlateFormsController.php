@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\PlateForms;
 use App\Form\PlateFormsType;
+use App\Repository\GamesRepository;
 use App\Repository\PlateFormsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,7 +16,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class PlateFormsController extends AbstractController
 {
     #[Route('/', name: 'app_plate_forms_index', methods: ['GET'])]
-    public function index(PlateFormsRepository $plateFormsRepository): Response
+    public function index(PlateFormsRepository $plateFormsRepository, GamesRepository $games): Response
     {
         return $this->render('plate_forms/index.html.twig', [
             'plate_forms' => $plateFormsRepository->findAll(),

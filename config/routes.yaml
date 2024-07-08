@@ -77,16 +77,16 @@ app_plate_forms_index:
     methods:  [GET]
 
 app_plate_forms_new:
-    path: /plateform/
+    path: /plateform/new
     controller: App\Controller\PlateFormsController::new
     methods:  [GET, POST]
 
 app_plate_forms_edit:
-    path: /plateform/
+    path: /plateform/edit
     controller: App\Controller\PlateFormsController::edit
     methods:  [GET, POST]
 
 app_plate_forms_delete:
-    path: /plateform/
+    path: /plateform/delete
     controller: App\Controller\PlateFormsController::delete
     methods:  DELETE
