@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PlateForms index{% endblock %}
+
+{% block body %}
+    <h1>PlateForms index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Link</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for plate_form in plate_forms %}
+            <tr>
+                <td>{{ plate_form.id }}</td>
+                <td>{{ plate_form.name }}</td>
+                <td>{{ plate_form.link }}</td>
+                <td>
+                    <a href="{{ path('app_plate_forms_show', {'id': plate_form.id}) }}">show</a>
+                    <a href="{{ path('app_plate_forms_edit', {'id': plate_form.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_plate_forms_new') }}">Create new</a>
+{% endblock %}

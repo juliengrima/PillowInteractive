@@ -155,6 +155,10 @@ form {
     gap: 15px; /* Espacement entre les éléments */
 }
 
+.relative-container {
+    position: relative;
+    margin-top: 10%;
+}
 
 /**************** ADMINITRATION PAGES ***************/
 

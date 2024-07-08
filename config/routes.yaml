@@ -12,7 +12,7 @@ home:
 app_news_letters_index:
     path: /newsletters
     controller: App\Controller\NewsLettersController::index
-    methods:  GET
+    methods:  [GET]
 
 app_news_letters_new:
     path: /newsletters/new

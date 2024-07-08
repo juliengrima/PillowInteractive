@@ -1,6 +1,8 @@
 # translations/messages.fr.yaml
 # ------ HEADER
 Home: Accueill
+# ------ BUTTONS
+Delete : Supprimer
 # ------ DROPS DOWN
 # ----------------- Administrator
 Dashboard: Administration
@@ -23,5 +25,6 @@ New game: Nouveau jeu
 Game's name: Nom du jeu
 Show: Montrer
 Edit: Editer
+
 
 
