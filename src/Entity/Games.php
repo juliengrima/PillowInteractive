@@ -21,9 +21,15 @@ class Games
 
     private ?string $description = null;
 
+    /**
+     * @var Collection<int, Images>
+     */
+    #[ORM\OneToMany(targetEntity: Images::class, mappedBy: 'game')]
+    private Collection $text;
+
     public function __construct()
     {
-
+        $this->text = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -51,6 +57,36 @@ class Games
     public function setDescription(?string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Images>
+     */
+    public function getText(): Collection
+    {
+        return $this->text;
+    }
+
+    public function addText(Images $text): static
+    {
+        if (!$this->text->contains($text)) {
+            $this->text->add($text);
+            $text->setGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeText(Images $text): static
+    {
+        if ($this->text->removeElement($text)) {
+            // set the owning side to null (unless already changed)
+            if ($text->getGame() === $this) {
+                $text->setGame(null);
+            }
+        }
 
         return $this;
     }
