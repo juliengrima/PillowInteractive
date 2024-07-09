@@ -11,6 +11,7 @@ Add: Ajouter
 Edit: Editer
 Show: Montrer
 Save: Sauvegarder
+Update: Mis à jour
 back to list: retour à la Liste
 # ------ DROPS DOWN
 # ----------------- Administrator
@@ -33,7 +34,9 @@ Submit: Valider
 # ----------------- Index
 New game: Nouveau jeu 
 New Images: Nouvelle image
+New Platform: Nouvelle plate-forme
 Edit Images: Changer l'image
+Edit Platfom: changer de plate-forme
 Name: Nom
 Link: lien url
 Title: Titre

@@ -1,13 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
-{% block title %}Edit PlateForms{% endblock %}
+{% block title %}{{'Edit Platfom'|trans}}{% endblock %}
 
 {% block body %}
-    <h1>Edit PlateForms</h1>
-
-    {{ include('plate_forms/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_plate_forms_index') }}">back to list</a>
-
-    {{ include('plate_forms/_delete_form.html.twig') }}
+    <h1>{{'Edit Platfom'|trans}}</h1>
+    <div class="relative-container">
+        <div class="container">
+            <div class="row">
+            <figure class="text-center">
+                <blockquote class="blockquote">
+                    <h1>{{ 'New Platform'|trans }}</h1>
+                    <a href="{{ path('app_plate_forms_index') }}" class="btn btn-warning">{{ 'back to list'|trans }}</a>
+                </blockquote>
+            </figure>
+            {{ include('plate_forms/_form.html.twig', {'button_label': 'Update'}) }}
+            {{ include('plate_forms/_delete_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

@@ -82,7 +82,7 @@ app_plate_forms_new:
     methods:  [GET, POST]
 
 app_plate_forms_edit:
-    path: /plateform/edit
+    path: /plateform/{id}/edit
     controller: App\Controller\PlateFormsController::edit
     methods:  [GET, POST]
 

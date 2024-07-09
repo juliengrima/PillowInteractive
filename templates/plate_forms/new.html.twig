@@ -1,11 +1,19 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
-{% block title %}New PlateForms{% endblock %}
+{% block title %}{{ 'New Platform'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>Create new PlateForms</h1>
-
-    {{ include('plate_forms/_form.html.twig') }}
-
-    <a href="{{ path('app_plate_forms_index') }}">back to list</a>
+    <h1>{{'New Platfom'|trans}}</h1>
+    <div class="relative-container">
+        <div class="container">
+            <div class="row">
+            <figure class="text-center">
+                <blockquote class="blockquote">
+                    <h1>{{ 'New Platform'|trans }}</h1>
+                    <a href="{{ path('app_plate_forms_index') }}" class="btn btn-warning">{{ 'back to list'|trans }}</a>
+                </blockquote>
+            </figure>
+            {{ include('plate_forms/_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}
