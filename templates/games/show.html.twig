@@ -1,28 +1,29 @@
-{% extends 'layout.html.twig' %}
+{# {% extends 'layout.html.twig' %}
 
 {% block title %}{{ game.name }}{% endblock %}
 
 {% block body %}
 <div class="row">
     <div class="relative-container">
-        <blockquote class="blockquote text-center">
-            <h2>{{ game.name }}</h2>
-            <p>{{ game.description }}</p>
-        </blockquote>
-    </div>
-</div>
-<div class="row">
-        <div class="page-container">
-            {% for image in game.images %}
-                {% if image == true %}
-                    {% set extension = image.getExtension() %}
-                    {% if extension in ['png', 'jpg', 'jpeg', 'gif'] %}
-                        <div class="section" style="background-image: url('{{ asset(image.link) }}');">
-                            <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
-                                <p>{{ image.text }}</p>
-                            </div>
+    {% for image in game.images %}
+        {% if image %}
+            {% if image.title == true %}
+            <blockquote class="blockquote text-center">
+                <div class="section" style="background-image: url('{{ asset(image.link) }}');">
+                    <h2>{{ game.name }}</h2>
+                    <p>{{ game.description }}</p>
+                </div>
+            </blockquote>
+            {% else %}
+            <div class="page-container">
+                {% set extension = image.getExtension() %}
+                {% if extension in ['png', 'jpg', 'jpeg', 'gif'] %}
+                    <div class="section" style="background-image: url('{{ asset(image.link) }}');">
+                        <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
+                            <p>{{ image.text }}</p>
                         </div>
-                    {% elseif extension == 'mp4' %}
+                    </div>
+                {% elseif extension == 'mp4' %}
                     <div class="section"> <div class="section">
                         <video class="video-background" autoplay loop muted>
                             <source src="{{ asset(image.link) }}" type="video/mp4">
@@ -32,20 +33,82 @@
                             <p>{{ image.text }}</p>
                         </div>
                     </div>
-                    {% endif %}   
-                {% else %}
-                    <div class="section">
-                        <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
-                            <p>{{ image.text }}</p>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
+                {% endif %}   
+            </div>
+            {% endif %}
+        {% else %}
+             <blockquote class="blockquote text-center">
+                    <h2>{{ game.name }}</h2>
+                    <p>{{ game.description }}</p>
+                </div>
+            </blockquote>
+            <div class="section">
+                <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
+                    <p>{{ image.text }}</p>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+    </div>
 </div>
     <a href="{{ path('app_games_index') }}">back to list</a>
 
     <a href="{{ path('app_games_edit', {'id': game.id}) }}">edit</a>
 
     {{ include('games/_delete_form.html.twig') }}
+{% endblock %} #}
+
+
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ game.name }}{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="relative-container">
+    {% if game.images is not empty %}
+        {% for image in game.images %}
+            {% set extension = image.link|split('.')|last %}
+            {% if image.title %}
+                <blockquote class="blockquote text-center">
+                    <div class="section" style="background-image: url('{{ asset(image.link) }}');">
+                        <h2>{{ game.name }}</h2>
+                        <p>{{ game.description }}</p>
+                    </div>
+                </blockquote>
+            {% else %}
+                <div class="page-container">
+                    {% if extension in ['png', 'jpg', 'jpeg', 'gif'] %}
+                        <div class="section" style="background-image: url('{{ asset(image.link) }}');">
+                            <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
+                                <p>{{ image.text }}</p>
+                            </div>
+                        </div>
+                    {% elseif extension == 'mp4' %}
+                        <div class="section">
+                            <video class="video-background" autoplay loop muted>
+                                <source src="{{ asset(image.link) }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
+                                <p>{{ image.text }}</p>
+                            </div>
+                        </div>
+                    {% endif %}   
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <blockquote class="blockquote text-center">
+            <h2>{{ game.name }}</h2>
+            <p>{{ game.description }}</p>
+        </blockquote>
+    {% endif %}
+    </div>
+</div>
+
+<a href="{{ path('app_games_index') }}">back to list</a>
+<a href="{{ path('app_games_edit', {'id': game.id}) }}">edit</a>
+
+{{ include('games/_delete_form.html.twig') }}
 {% endblock %}
