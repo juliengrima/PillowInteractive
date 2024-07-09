@@ -8,6 +8,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class GamesType extends AbstractType
 {
@@ -16,12 +18,12 @@ class GamesType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            // ->add('plateForms', EntityType::class, [
-            //     'class' => PlateForms::class,
-            //     'choice_label' => 'name',
-            //     'multiple' => true,
-            //     'expanded' => true, // Utilisez `false` si vous voulez une liste déroulante
-            // ])
+            ->add('platForm', EntityType::class, [
+                'class' => PlateForms::class,
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => true,
+            ])
         ;
     }
 

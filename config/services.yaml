@@ -24,3 +24,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+     # Register the Twig String extension
+    Twig\Extra\TwigExtraBundle\ExtraExtension: ['@twig']
+
+    # Register the String extension itself
+    # Twig\Extra\String\StringExtension: ~
