@@ -1,14 +1,14 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}{{ 'Platforms list'|trans }}{% endblock %}
+{% block title %}{{'Images list'|trans }}{% endblock %}
 
 {% block body %}
-    <div class="relative-container">
+<div class="relative-container">
     <div class="container">
         <div class="row">
         <figure class="text-center">
             <blockquote class="blockquote">
-                 <h1>{{ 'Platforms list'|trans }}</h1>
+                 <h1>{{ 'Images list'|trans }}</h1>
                 <a href="{{ path('app_images_new') }}" class="btn btn-success">{{ 'Add'|trans }}</a>
             </blockquote>
         </figure>
@@ -16,21 +16,28 @@
                 <thead class="text-center">
                     <tr>
                         <th>Id</th>
+                        <td>{{ 'Game'|trans }}</td>
                         <th>{{ 'Name'|trans }}</th>
                         <th>{{ 'Link'|trans }}</th>
+                        <th>{{ 'Title'|trans }}</th>
                         <th>actions</th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
-                {% for plate_form in plate_forms %}
+                {% for image in images %}
                     <tr>
-                        <td>{{ plate_form.id }}</td>
-                        <td>{{ plate_form.name }}</td>
-                        <td>{{ plate_form.link }}</td>
+                        <td>{{ image.id }}</td>
+                        <td>{{ image.game.name }}</td>
+                        <td>{{ image.name }}</td>
+                        {# <td>{{ image.link }}</td> #}
                         <td>
-                            <a href="{{ path('app_plate_forms_show', {'id': plate_form.id}) }}" class="btn btn-primary">{{ 'Show'|trans }}</a>
-                            <a href="{{ path('app_plate_forms_edit', {'id': plate_form.id}) }}" class="btn btn-warning">{{ 'Edit'|trans }}</a>
-                            <a href="{{ path('app_plate_forms_delete', {'id': plate_form.id}) }}" class="btn btn-danger">{{ 'Delete'|trans }}</a>
+                            <img src="{{ asset(image.link) }}" alt="{{ image.name }}" style="max-width: 100px; height: auto;">
+                            {{ image.link }}
+                        </td>
+                        <td>{{ image.title ? 'Yes' : 'No' }}</td>
+                        <td>
+                            <a href="{{ path('app_images_edit', {'id': image.id}) }}" class="btn btn-warning">{{ 'Edit'|trans }}</a>
+                            <a href="{{ path('app_images_delete', {'id': image.id}) }}" class="btn btn-danger">{{ 'Delete'|trans }}</a>
                         </td>
                     </tr>
                 {% else %}

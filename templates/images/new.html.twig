@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{'New Images'|trans}}{% endblock %}
+
+{% block body %}
+    <h1>{{'New Images'|trans}}</h1>
+
+    {# {{ include('images/_form.html.twig') }} #}
+
+    <div class="relative-container">
+        <div class="container">
+            <div class="row">
+            <figure class="text-center">
+                <blockquote class="blockquote">
+                    <h1>{{ 'Images list'|trans }}</h1>
+                    <a href="{{ path('app_images_index') }}" class="btn btn-secondary">{{ 'back to list'|trans }}</a>
+                </blockquote>
+            </figure>
+             {{ include('images/_form.html.twig') }}
+        </div>
+    </div>
+</div>
+{% endblock %}

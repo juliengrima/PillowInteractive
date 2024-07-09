@@ -7,15 +7,28 @@
     <div class="parallax-content">
         <div  class="swiper-container">
             <div class="swiper-wrapper">
-                {% set max_iterations = 3 %}
-                {% for i in 1..max_iterations %}
-                    <div class="swiper-slide">
-                        <img src="{{asset('images/jeux/image1jeu' ~ i ~ '.jpg')}}" alt="Slide 1"> 
-                        <div class="slide-text">
-                            <h3>Titre Slide {{i}}</h3>
-                            <p>Texte pour Slide {{i}}</p>
+                {% for game in games %}
+                    {% set hasTitleImage = false %}  
+                    {% for image in game.images %}
+                        {% if image.title %} 
+                        {% set hasTitleImage = true %}
+                             <div class="swiper-slide">
+                                <img src="{{ asset(image.link) }}" alt="Slide Image for {{ game.name }}"> 
+                                <div class="slide-text">
+                                    <h3>{{ game.name }}</h3>
+                                    <p>{{ game.description }}</p>
+                                </div>
+                            </div>
+                        {% endif %} 
+                    {% endfor %}
+                    {% if not hasTitleImage %}
+                        <div class="swiper-slide">
+                            <div class="slide-text-no-image">
+                                <h3>{{ game.name }}</h3>
+                                <p>{{ game.description }}</p>
+                            </div>
                         </div>
-                    </div>
+                    {% endif %}
                 {% endfor %}
             </div> 
             <!-- add boutons if necessary -->

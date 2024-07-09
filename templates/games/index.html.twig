@@ -3,40 +3,44 @@
 {% block title %}Games index{% endblock %}
 
 {% block body %}
-<div class="row">
-    <div class="admin-container">
-        <blockquote class="blockquote text-center">
-            <h1>Games index</h1>
-            <a href="{{ path('app_games_new') }}" class="btn btn-success">{{ 'New game'|trans }}</a>
-        </blockquote>
-
-        <table class="table table-striped table-dark">
-            <thead class="text-center">
-                <tr>
-                    <th class="col">Id</th>
-                    <th class="col">{{ 'Game\'s name'|trans }}</th>
-                    <th class="col">Description</th>
-                    <th class="col">actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for game in games %}
-                <tr class="text-center">
-                    <th scope="row">{{ game.id }}</th>
-                    <td>{{ game.name }}</td>
-                    <td>{{ game.description }}</td>
-                    <td>
-                        <a href="{{ path('app_games_show', {'id': game.id, 'name': game.name}) }}" class="btn btn-success">{{ 'Show'|trans }}</a>
-                        <a href="{{ path('app_games_edit', {'id': game.id, 'name': game.name}) }}" class="btn btn-warning">{{ 'Edit'|trans }}</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="4">no records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>  
+<div class="relative-container">
+    <div class="container">
+        <div class="row">
+        <figure class="text-center">
+            <blockquote class="blockquote">
+                 <h1>{{ 'Games list'|trans }}</h1>
+                <a href="{{ path('app_images_new') }}" class="btn btn-success">{{ 'Add'|trans }}</a>
+            </blockquote>
+        </figure>
+            <table class="table table-striped table-dark">
+                <thead class="text-center">
+                    <tr>
+                        <th>Id</th>
+                        <th>{{ 'Name'|trans }}</th>
+                        <th>Description</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                {% for game in games %}
+                    <tr>
+                        <td>{{ game.id }}</td>
+                        <td>{{ game.name }}</td>
+                        <td>{{ game.description }}</td>
+                        <td>
+                            <a href="{{ path('app_games_show', {'id': game.id, 'name': game.name}) }}" class="btn btn-success">{{ 'Show'|trans }}</a>
+                            <a href="{{ path('app_games_edit', {'id': game.id, 'name': game.name}) }}" class="btn btn-warning">{{ 'Edit'|trans }}</a>
+                            <a href="{{ path('app_games_edit', {'id': game.id, 'name': game.name}) }}" class="btn btn-danger">{{ 'delete'|trans }}</a>
+                        </td> 
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 {% endblock %}

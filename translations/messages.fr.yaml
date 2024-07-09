@@ -1,8 +1,17 @@
 # translations/messages.fr.yaml
 # ------ HEADER
 Home: Accueill
+# ------ TITLES
+Images list: Liste d'images
+Games list: Liste des jeux
+Platforms list: Liste des plates-formes
 # ------ BUTTONS
 Delete : Supprimer
+Add: Ajouter
+Edit: Editer
+Show: Montrer
+Save: Sauvegarder
+back to list: retour à la Liste
 # ------ DROPS DOWN
 # ----------------- Administrator
 Dashboard: Administration
@@ -23,9 +32,9 @@ Submit: Valider
 # ------ GAMES
 # ----------------- Index
 New game: Nouveau jeu 
-Game's name: Nom du jeu
-Show: Montrer
-Edit: Editer
-
-
-
+New Images: Nouvelle image
+Edit Images: Changer l'image
+Name: Nom
+Link: lien url
+Title: Titre
+Game: Jeu

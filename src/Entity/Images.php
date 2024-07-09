@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ImagesRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ImagesRepository::class)]
@@ -24,6 +25,9 @@ class Images
 
     #[ORM\Column(nullable: true)]
     private ?bool $title = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $text = null;
 
     public function getId(): ?int
     {
@@ -74,6 +78,18 @@ class Images
     public function setTitle(?bool $title): static
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getText(): ?string
+    {
+        return $this->text;
+    }
+
+    public function setText(?string $text): static
+    {
+        $this->text = $text;
 
         return $this;
     }
