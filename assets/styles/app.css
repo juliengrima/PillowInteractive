@@ -158,11 +158,13 @@ form {
 .relative-container {
     position: relative;
     margin-top: 10%;
+    background-color: #6E6E6E;
 }
 
 /**************** ADMINITRATION PAGES ***************/
 
 .admin-container {
+    position: relative;
     padding-top: 12%;
     background-color: #6E6E6E;
 }

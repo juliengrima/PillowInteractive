@@ -22,6 +22,9 @@ class Images
     #[ORM\ManyToOne(inversedBy: 'images')]
     private ?Games $game = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $title = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Images
     public function setGame(?Games $game): static
     {
         $this->game = $game;
+
+        return $this;
+    }
+
+    public function isTitle(): ?bool
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?bool $title): static
+    {
+        $this->title = $title;
 
         return $this;
     }

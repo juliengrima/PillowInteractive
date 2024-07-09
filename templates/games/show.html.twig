@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class="row">
-    <div class="admin-container">
+    <div class="relative-container">
         <blockquote class="blockquote text-center">
             <h2>{{ game.name }}</h2>
             <p>{{ game.description }}</p>
@@ -13,7 +13,7 @@
 </div>
 <div class="row">
         <div class="page-container">
-            {# {% for image in game.images %}
+            {% for image in game.images %}
                 {% if image == true %}
                     {% set extension = image.getExtension() %}
                     {% if extension in ['png', 'jpg', 'jpeg', 'gif'] %}
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 {% endif %}
-            {% endfor %} #}
+            {% endfor %}
         </div>
 </div>
     <a href="{{ path('app_games_index') }}">back to list</a>
