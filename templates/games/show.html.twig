@@ -3,24 +3,26 @@
 {% block title %}{{ game.name }}{% endblock %}
 
 {% block body %}
-<div class="row">
-    <div class="relative-container">
     {% if game.images is not empty %}
         {% for image in game.images %}
             {% set extension = image.link|split('.')|last %}
             {% if image.title %}
-                <blockquote class="blockquote text-center">
-                    <div class="section" style="background-image: url('{{ asset(image.link) }}');">
+            <div id="parallax-container" class="parallax-container">
+                <div class="parallax-content">
+                    <div class="parallax-section" style="background-image: url('{{ asset(image.link) }}');">
                         <h2>{{ game.name }}</h2>
                         <p>{{ game.description }}</p>
                     </div>
-                </blockquote>
+                </div>
+            </div>
             {% else %}
                 <div class="page-container">
                     {% if extension in ['png', 'jpg', 'jpeg', 'gif'] %}
                         <div class="section" style="background-image: url('{{ asset(image.link) }}');">
-                            <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
-                                <p>{{ image.text }}</p>
+                            <div class="box-container">
+                                <div class="text-container">
+                                    <p>{{ image.text }}</p>
+                                </div>
                             </div>
                         </div>
                     {% elseif extension == 'mp4' %}
@@ -29,7 +31,7 @@
                                 <source src="{{ asset(image.link) }}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
-                            <div class="text-container {{ loop.index is odd ? 'left' : 'right' }}">
+                            <div class="text-container">
                                 <p>{{ image.text }}</p>
                             </div>
                         </div>
@@ -43,11 +45,78 @@
             <p>{{ game.description }}</p>
         </blockquote>
     {% endif %}
-    </div>
-</div>
 
 <a href="{{ path('app_games_index') }}">back to list</a>
 <a href="{{ path('app_games_edit', {'id': game.id}) }}">edit</a>
 
 {{ include('games/_delete_form.html.twig') }}
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const textContainers = document.querySelectorAll('.text-container');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('zoom');
+                    } else {
+                        entry.target.classList.remove('zoom');
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            textContainers.forEach(container => {
+                observer.observe(container);
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const sections = document.querySelectorAll('.section');
+        const textContainers = document.querySelectorAll('.text-container');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('sticky');
+                    const textContainer = entry.target.querySelector('.text-container');
+                    if (textContainer) {
+                        textContainer.classList.add('zoom');
+                    }
+                } else {
+                    entry.target.classList.remove('sticky');
+                    const textContainer = entry.target.querySelector('.text-container');
+                    if (textContainer) {
+                        textContainer.classList.remove('zoom');
+                    }
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    });
+    </script>
+{% endblock %}
+
+

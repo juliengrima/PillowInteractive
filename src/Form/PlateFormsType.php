@@ -17,17 +17,23 @@ class PlateFormsType extends AbstractType
         $builder
             ->add('name')
             ->add('link', FileType::class, [
-                'label' => 'Image (PNG, JPEG)',
+                'label' => 'Image (PNG, JPEG file)',
                 'mapped' => false,
-                'required' => false,
+                'required' => true,
+            ])
+            ->add('link', FileType::class, [
+                'label' => 'Image (PNG, JPEG, MP4 files)',
+                'mapped' => false,
+                'required' => true,
                 'constraints' => [
                     new \Symfony\Component\Validator\Constraints\File([
-                        'maxSize' => '1024k',
+                        'maxSize' => '2048k',
                         'mimeTypes' => [
                             'image/png',
                             'image/jpeg',
+                            'video/mp4',
                         ],
-                        'mimeTypesMessage' => 'Please upload a valid PNG or JPEG image',
+                        'mimeTypesMessage' => 'Please upload a valid PNG, JPEG or MP4 file',
                     ])
                 ],
             ])

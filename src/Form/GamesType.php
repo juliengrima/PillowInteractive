@@ -23,6 +23,7 @@ class GamesType extends AbstractType
                 'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => true,
+                'label' => 'platform', // Clé de traduction
             ])
         ;
     }

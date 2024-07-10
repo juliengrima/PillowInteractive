@@ -30,17 +30,15 @@
                         <td>{{ image.id }}</td>
                         <td>{{ image.game.name }}</td>
                         <td>{{ image.name }}</td>
-                        {# <td>{{ image.link }}</td> #}
                         <td>
                             <img src="{{ asset(image.link) }}" alt="{{ image.name }}" style="max-width: 100px; height: auto;">
-                            {# {{ image.link }} #}
+                            {{ image.link }}
                         </td>
                         <td>{{ image.text }}</td>
                         <td>{{ image.title ? 'Yes' : 'No' }}</td>
                         <td>
                             <div class="action-buttons">
-                                <a href="{{ path('app_images_edit', {'id': image.id}) }}" class="btn btn-warning">{{ 'Edit'|trans }}</a>
-                                {# <a href="{{ path('app_images_delete', {'id': image.id}) }}" class="btn btn-danger">{{ 'Delete'|trans }}</a> #}
+                                <a href="{{ path('app_images_edit', {'id': image.id}) }}" class="btn btn-warning">{{ 'Edit'|trans }}</a> 
                                 {{ include('images/_delete_form.html.twig', {'images': images}) }}
                             </div>
                         </td>

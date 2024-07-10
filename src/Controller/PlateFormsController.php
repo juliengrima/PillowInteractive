@@ -32,24 +32,26 @@ class PlateFormsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $imageFile = $form->get('link')->getData();
-
-            if ($imageFile) {
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+            // Gérer l'upload de fichier
+            $uploadedFile = $form['link']->getData();
+            if ($uploadedFile) {
+                $destination = $this->getParameter('kernel.project_dir').'/public/uploads/images';
+                $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = uniqid().'.'.$uploadedFile->guessExtension();
 
                 try {
-                    $imageFile->move(
-                        $this->getParameter('images_directory'),
+                    $uploadedFile->move(
+                        $destination,
                         $newFilename
                     );
                 } catch (FileException $e) {
-                    // handle exception
+                    // Gérer les erreurs si nécessaire
                 }
 
-                $plateForm->setLink($newFilename);
+                // Mettre à jour l'entité avec le chemin du fichier
+                $plateForm->setLink('/uploads/images/'.$newFilename);
             }
+
 
             $entityManager->persist($plateForm);
             $entityManager->flush();
@@ -78,7 +80,7 @@ class PlateFormsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+            
             // Gérer l'upload de fichier
             $uploadedFile = $form['link']->getData();
             if ($uploadedFile) {
@@ -96,7 +98,7 @@ class PlateFormsController extends AbstractController
                 }
 
                 // Mettre à jour l'entité avec le chemin du fichier
-                $plateForm->setLink('/uploads/images/platforms'.$newFilename);
+                $plateForm->setLink('/uploads/images/'.$newFilename);
             }
 
             $entityManager->flush();

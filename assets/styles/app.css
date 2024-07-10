@@ -120,6 +120,24 @@ a:hover {
     height: auto; /* Assurez-vous que l'image est responsive */
 }
 
+.parallax-section {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
+}
+
+.parallax-section h2, .parallax-section p {
+    margin-bottom: 2%;
+}
 
 /**************** SLIDER ***************/
 
@@ -204,37 +222,52 @@ form {
 /**************** GAME PAGE ***************/
 
 .page-container {
-    width: 100%;
+    background-color: #6E6E6E;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    min-height: 100%;
+    align-items: center;
+    
 }
 
 .section {
     position: relative;
+    width: 100%;
+    height: 100vh;
     background-size: cover;
     background-position: center;
-    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    padding: 20px;
+    transition: top 0.5s ease-out;
+}
+
+.section.sticky {
+    position: -webkit-sticky; /* Pour compatibilité avec Safari */
+    position: sticky;
+    top: 0;
+}
+
+
+.box-container {
+    width: 50%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .text-container {
-    width: 45%;
-    margin: 10px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 10px;
+    font-size: 1.2em; /* Ajustez la taille de la police selon vos besoins */
+    color: white;
+    transform: scale(1);
+    transition: transform 0.5s ease-out;
 }
 
-.text-container.left {
-    text-align: left;
-    align-self: flex-start;
-}
-
-.text-container.right {
-    text-align: right;
-    align-self: flex-end;
+.text-container.zoom {
+    transform: scale(1.5);
 }
 
 .video-background {
@@ -246,3 +279,19 @@ form {
     object-fit: cover;
     z-index: -1;
 }
+
+.title-section {
+    height: calc(100vh - 60px); /* Adjust the 60px based on your navbar height */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.title-section h2 {
+    margin-bottom: 2%;
+}
+

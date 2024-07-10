@@ -20,9 +20,9 @@ app_news_letters_new:
     methods:  [GET, POST]
 
 app_news_letters_delete:
-    path: /newsletters/delete
+    path: /newsletters/{id}
     controller: App\Controller\NewsLettersController::delete
-    methods:  DELETE
+    methods:  [GET, POST]
 
 # GAMES
 app_games_index:
@@ -36,7 +36,7 @@ app_games_new:
     methods:  [GET, POST]
 
 app_games_edit:
-    path: /games/edit/{id}
+    path: /games/{id}/edit
     controller: App\Controller\GamesController::edit
     methods:  [GET, POST]
 
@@ -46,9 +46,9 @@ app_games_show:
     methods:  [GET]
 
 app_games_delete:
-    path: /games/delete
+    path: /games/{id}
     controller: App\Controller\GamesController::delete
-    methods:  DELETE
+    methods:  [GET, POST]
 
 # IMAGES
 app_images_index:

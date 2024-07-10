@@ -25,7 +25,7 @@
                         <td>{{ news_letter.id }}</td>
                         <td>{{ news_letter.email }}</td>
                         <td>
-                            <a href="{{ path('app_news_letters_delete', {'id': news_letter.id}) }}" class="btn btn-danger">{{ 'Delete'|trans }}</a> 
+                            {{ include('news_letters/_delete_form.html.twig', {'news_letter': news_letter}) }}
                         </td>
                     </tr>
                 {% else %}

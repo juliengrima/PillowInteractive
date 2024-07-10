@@ -25,20 +25,23 @@ Add Plate-form: Nouvelle Plate-forme
 Games: Jeux
 # ------ FOOTER
 Subscribe to the news letter: M'abonner à la news letter
-# ------ NEWS LETTER
+# ------ NEWS LETTER VIEW
 Subscribe to the newsletter and stay tuned.: Abonnez-vous à la newsletter et restez à l'écoute.
 We will never share your email with others.: Nous ne partagerons jamais votre e-mail avec les autres.
 Enter your email: Entrez votre email
 Submit: Valider
-# ------ GAMES
-# ----------------- Index
+# ------ GAMES / NEWSLETTERS / IMAGES / PLATFORMS
+# ----------------- Index / New / Edit
 New game: Nouveau jeu 
 New Images: Nouvelle image
 New Platform: Nouvelle plate-forme
 Edit Images: Changer l'image
 Edit Platfom: changer de plate-forme
+Edit Games: modifier le jeu
 Name: Nom
 Link: lien url
 Title: Titre
 Game: Jeu
 Picture: image
+Platform: Plate-forme
+

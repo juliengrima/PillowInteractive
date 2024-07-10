@@ -19,9 +19,20 @@ class ImagesType extends AbstractType
         $builder
             ->add('name')
             ->add('link', FileType::class, [
-                'label' => 'Image (PNG, JPEG file)',
+                'label' => 'Image (PNG, JPEG, MP4 files)',
                 'mapped' => false,
                 'required' => true,
+                'constraints' => [
+                    new \Symfony\Component\Validator\Constraints\File([
+                        'maxSize' => '2048k',
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpeg',
+                            'video/mp4',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid PNG, JPEG or MP4 file',
+                    ])
+                ],
             ])
             ->add('title', CheckboxType::class, [
                 'label' => 'Title',
