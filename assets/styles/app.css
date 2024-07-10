@@ -37,6 +37,19 @@ a:hover {
     padding: 2%;
     
 }
+
+.action-buttons {
+    display: flex;
+    gap: 5px; /* Adjust the gap between buttons as needed */
+}
+
+.action-buttons form {
+    display: inline;
+}
+
+.action-buttons .btn {
+    margin: 0;
+}
 /**************** NAVBAR ***************/
 .navbar-brand img{
     width: 15%;  

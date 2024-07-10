@@ -18,7 +18,8 @@
                         <th>Id</th>
                         <td>{{ 'Game'|trans }}</td>
                         <th>{{ 'Name'|trans }}</th>
-                        <th>{{ 'Link'|trans }}</th>
+                        <th>{{ 'Picture'|trans }}</th>
+                        <th>{{ 'text'|trans }}</th>
                         <th>{{ 'Title'|trans }}</th>
                         <th>actions</th>
                     </tr>
@@ -32,12 +33,16 @@
                         {# <td>{{ image.link }}</td> #}
                         <td>
                             <img src="{{ asset(image.link) }}" alt="{{ image.name }}" style="max-width: 100px; height: auto;">
-                            {{ image.link }}
+                            {# {{ image.link }} #}
                         </td>
+                        <td>{{ image.text }}</td>
                         <td>{{ image.title ? 'Yes' : 'No' }}</td>
                         <td>
-                            <a href="{{ path('app_images_edit', {'id': image.id}) }}" class="btn btn-warning">{{ 'Edit'|trans }}</a>
-                            <a href="{{ path('app_images_delete', {'id': image.id}) }}" class="btn btn-danger">{{ 'Delete'|trans }}</a>
+                            <div class="action-buttons">
+                                <a href="{{ path('app_images_edit', {'id': image.id}) }}" class="btn btn-warning">{{ 'Edit'|trans }}</a>
+                                {# <a href="{{ path('app_images_delete', {'id': image.id}) }}" class="btn btn-danger">{{ 'Delete'|trans }}</a> #}
+                                {{ include('images/_delete_form.html.twig', {'images': images}) }}
+                            </div>
                         </td>
                     </tr>
                 {% else %}

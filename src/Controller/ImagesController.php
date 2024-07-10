@@ -32,25 +32,25 @@ class ImagesController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-             // Gérer l'upload de fichier
-        $uploadedFile = $form['link']->getData();
-        if ($uploadedFile) {
-            $destination = $this->getParameter('kernel.project_dir').'/public/uploads/images';
-            $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
-            $newFilename = uniqid().'.'.$uploadedFile->guessExtension();
+            // Gérer l'upload de fichier
+            $uploadedFile = $form['link']->getData();
+            if ($uploadedFile) {
+                $destination = $this->getParameter('kernel.project_dir').'/public/uploads/images';
+                $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = uniqid().'.'.$uploadedFile->guessExtension();
 
-            try {
-                $uploadedFile->move(
-                    $destination,
-                    $newFilename
-                );
-            } catch (FileException $e) {
-                // Gérer les erreurs si nécessaire
+                try {
+                    $uploadedFile->move(
+                        $destination,
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // Gérer les erreurs si nécessaire
+                }
+
+                // Mettre à jour l'entité avec le chemin du fichier
+                $image->setLink('/uploads/images/'.$newFilename);
             }
-
-            // Mettre à jour l'entité avec le chemin du fichier
-            $image->setLink('/uploads/images/'.$newFilename);
-        }
             $entityManager->persist($image);
             $entityManager->flush();
 

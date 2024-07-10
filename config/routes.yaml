@@ -67,9 +67,9 @@ app_images_edit:
     methods:  [GET, POST]
 
 app_images_delete:
-    path: /images/delete
+    path: /images/{id}
     controller: App\Controller\ImagesController::delete
-    methods: DELETE
+    methods: [GET, POST]
 # PlatForms
 app_plate_forms_index:
     path: /plateform/
@@ -87,6 +87,6 @@ app_plate_forms_edit:
     methods:  [GET, POST]
 
 app_plate_forms_delete:
-    path: /plateform/delete
+    path: /plateform/{id}
     controller: App\Controller\PlateFormsController::delete
-    methods:  DELETE
+    methods: [GET, POST]
