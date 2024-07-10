@@ -33,11 +33,12 @@ Subscribe to the newsletter and stay tuned.: Abonnez-vous à la newsletter et re
 We will never share your email with others.: Nous ne partagerons jamais votre e-mail avec les autres.
 Enter your email: Entrez votre email
 Submit: Valider
-# ------ GAMES / NEWSLETTERS / IMAGES / PLATFORMS
+# ------ GAMES / NEWSLETTERS / IMAGES / PLATFORMS / STUDIO
 # ----------------- Index / New / Edit
 New game: Nouveau jeu 
 New Images: Nouvelle image
 New Platform: Nouvelle plate-forme
+New Studio paragraph: Nouveau paragraphe studio
 Edit Images: Changer l'image
 Edit Platfom: changer de plate-forme
 Edit Games: modifier le jeu
@@ -47,4 +48,8 @@ Title: Titre
 Game: Jeu
 Picture: image
 Platform: Plate-forme
-
+Our studio: Notre studio
+No images: Pas d'image
+Gameplay developper: Développeur de Gameplay
+Chief Technical Officer: Directeur technique
+Chief Executive Officer: Directeur général

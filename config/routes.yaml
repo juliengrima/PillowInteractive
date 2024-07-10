@@ -98,3 +98,24 @@ app_plate_forms_delete:
     path: /plateform/{id}
     controller: App\Controller\PlateFormsController::delete
     methods: [GET, POST]
+
+# STUDIO
+app_studio_index:
+    path: /studio/
+    controller: App\Controller\StudioController::index
+    methods:  [GET]
+
+app_studio_new:
+    path: /studio/new
+    controller: App\Controller\StudioController::new
+    methods:  [GET, POST]
+
+app_studio_edit:
+    path: /studio/{id}/edit
+    controller: App\Controller\StudioController::edit
+    methods:  [GET, POST]
+
+app_studio_delete:
+    path: /studio/{id}
+    controller: App\Controller\StudioController::delete
+    methods: [GET, POST]

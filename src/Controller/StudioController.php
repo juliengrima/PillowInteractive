@@ -42,14 +42,6 @@ class StudioController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_studio_show', methods: ['GET'])]
-    public function show(Studio $studio): Response
-    {
-        return $this->render('studio/show.html.twig', [
-            'studio' => $studio,
-        ]);
-    }
-
     #[Route('/{id}/edit', name: 'app_studio_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Studio $studio, EntityManagerInterface $entityManager): Response
     {

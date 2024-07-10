@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51279e7ff8641c4d111fb137e358d167",
+    "content-hash": "1f6a173251ef60f818d2ae6bd73e050e",
     "packages": [
         {
             "name": "composer/semver",
@@ -4155,16 +4155,16 @@
         },
         {
             "name": "symfony/mailer",
-            "version": "v7.1.1",
+            "version": "v7.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mailer.git",
-                "reference": "2eaad2e167cae930f25a3d731fec8b2ded5e751e"
+                "reference": "8fcff0af9043c8f8a8e229437cea363e282f9aee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mailer/zipball/2eaad2e167cae930f25a3d731fec8b2ded5e751e",
-                "reference": "2eaad2e167cae930f25a3d731fec8b2ded5e751e",
+                "url": "https://api.github.com/repos/symfony/mailer/zipball/8fcff0af9043c8f8a8e229437cea363e282f9aee",
+                "reference": "8fcff0af9043c8f8a8e229437cea363e282f9aee",
                 "shasum": ""
             },
             "require": {
@@ -4215,7 +4215,7 @@
             "description": "Helps sending emails",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/mailer/tree/v7.1.1"
+                "source": "https://github.com/symfony/mailer/tree/v7.1.2"
             },
             "funding": [
                 {
@@ -4231,7 +4231,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-31T14:57:53+00:00"
+            "time": "2024-06-28T08:00:31+00:00"
         },
         {
             "name": "symfony/messenger",
@@ -5646,16 +5646,16 @@
         },
         {
             "name": "symfony/security-bundle",
-            "version": "v7.1.1",
+            "version": "v7.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-bundle.git",
-                "reference": "dc4fb2acee6d28bf490ba300a36389182de74d25"
+                "reference": "a6746372202512d2c75ba9bdbc36e15022a56c42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/dc4fb2acee6d28bf490ba300a36389182de74d25",
-                "reference": "dc4fb2acee6d28bf490ba300a36389182de74d25",
+                "url": "https://api.github.com/repos/symfony/security-bundle/zipball/a6746372202512d2c75ba9bdbc36e15022a56c42",
+                "reference": "a6746372202512d2c75ba9bdbc36e15022a56c42",
                 "shasum": ""
             },
             "require": {
@@ -5732,7 +5732,7 @@
             "description": "Provides a tight integration of the Security component into the Symfony full-stack framework",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/security-bundle/tree/v7.1.1"
+                "source": "https://github.com/symfony/security-bundle/tree/v7.1.2"
             },
             "funding": [
                 {
@@ -5748,20 +5748,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-31T14:57:53+00:00"
+            "time": "2024-06-28T10:35:32+00:00"
         },
         {
             "name": "symfony/security-core",
-            "version": "v7.1.1",
+            "version": "v7.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-core.git",
-                "reference": "536399671a46b0e615d69583f067e30ad25ad038"
+                "reference": "d615960211a11913e70f8576e5c38cd05d90ec3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-core/zipball/536399671a46b0e615d69583f067e30ad25ad038",
-                "reference": "536399671a46b0e615d69583f067e30ad25ad038",
+                "url": "https://api.github.com/repos/symfony/security-core/zipball/d615960211a11913e70f8576e5c38cd05d90ec3f",
+                "reference": "d615960211a11913e70f8576e5c38cd05d90ec3f",
                 "shasum": ""
             },
             "require": {
@@ -5818,7 +5818,7 @@
             "description": "Symfony Security Component - Core Library",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/security-core/tree/v7.1.1"
+                "source": "https://github.com/symfony/security-core/tree/v7.1.2"
             },
             "funding": [
                 {
@@ -5834,7 +5834,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-31T14:57:53+00:00"
+            "time": "2024-06-28T08:00:31+00:00"
         },
         {
             "name": "symfony/security-csrf",
@@ -6936,16 +6936,16 @@
         },
         {
             "name": "symfony/validator",
-            "version": "v7.1.1",
+            "version": "v7.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "fcab7598968b21c361becc930fcae8846638c4c0"
+                "reference": "bed12b7d5bd4dac452db5fa6203331c876b489e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/fcab7598968b21c361becc930fcae8846638c4c0",
-                "reference": "fcab7598968b21c361becc930fcae8846638c4c0",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/bed12b7d5bd4dac452db5fa6203331c876b489e7",
+                "reference": "bed12b7d5bd4dac452db5fa6203331c876b489e7",
                 "shasum": ""
             },
             "require": {
@@ -7013,7 +7013,7 @@
             "description": "Provides tools to validate values",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/validator/tree/v7.1.1"
+                "source": "https://github.com/symfony/validator/tree/v7.1.2"
             },
             "funding": [
                 {
@@ -7029,7 +7029,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-06-04T05:58:56+00:00"
+            "time": "2024-06-25T19:55:06+00:00"
         },
         {
             "name": "symfony/var-dumper",
