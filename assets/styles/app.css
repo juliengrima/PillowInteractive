@@ -51,8 +51,15 @@ a:hover {
     margin: 0;
 }
 /**************** NAVBAR ***************/
-.navbar-brand img{
+.navbar-brand {
     width: 15%;  
+    height: auto; 
+    margin-right: 2%; 
+    margin-left: 3%;
+}
+
+.logo-image {
+    width: 18%;  
     height: auto; 
     margin-right: 2%; 
     margin-left: 3%;
@@ -295,3 +302,53 @@ form {
     margin-bottom: 2%;
 }
 
+.table-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Ajustez si nécessaire pour votre mise en page */
+}
+
+.table {
+    margin: 0 auto; /* Centrer le tableau horizontalement */
+}
+
+.table th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.platform-image {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centrer l'image dans la cellule */
+}
+
+/**************** CGU ***************/
+.cgu-content h2 {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.cgu-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.container {
+    padding-top: 5rem;
+}
+
+/**************** POLITIQUE DE CONFIDENTIALITE ***************/
+.privacy-policy-content h2 {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.privacy-policy-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}

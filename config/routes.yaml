@@ -8,6 +8,14 @@ home:
    path: /
    controller: App\Controller\HomeController::index
 
+conditions:
+   path: /cgu
+   controller: App\Controller\HomeController::conditions
+
+confidentialities:
+    path: /confidentialities
+    controller: App\Controller\HomeController::confidentialities
+
 # NEWS LETTERS
 app_news_letters_index:
     path: /newsletters

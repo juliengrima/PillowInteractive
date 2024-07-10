@@ -20,4 +20,24 @@ class HomeController extends AbstractController
             'games' => $games,
         ]);
     }
+
+    #[Route('/conditions', name: 'app_conditions')]
+    public function conditions(Request $request, GamesRepository $gamesRepository): Response
+    {
+        $games = $gamesRepository->findAll();
+        return $this->render('home/conditions.html.twig', [
+            'controller_name' => 'HomeController',
+            'games' => $games,
+        ]);
+    }
+
+    #[Route('/confidentialities', name: 'app_confidentialities')]
+    public function confidentialities(Request $request, GamesRepository $gamesRepository): Response
+    {
+        $games = $gamesRepository->findAll();
+        return $this->render('home/confidentialities.html.twig', [
+            'controller_name' => 'HomeController',
+            'games' => $games,
+        ]);
+    }
 }

@@ -1,6 +1,9 @@
 # translations/messages.fr.yaml
 # ------ HEADER
 Home: Accueill
+# ------ LAYOUT
+Terms of Service: Conditions Générales d'Utilisation
+Privacy Policy: Politique de confidentialité
 # ------ TITLES
 Images list: Liste d'images
 Games list: Liste des jeux
@@ -19,7 +22,7 @@ Dashboard: Administration
 New Game: Nouveau jeu
 Add Images: Ajouter des images
 Administrators: Administrateur
-News Letter: News Letter
+Newsletter: Newsletter
 Add Plate-form: Nouvelle Plate-forme
 # ----------------- Users
 Games: Jeux

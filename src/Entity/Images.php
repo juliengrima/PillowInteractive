@@ -29,6 +29,9 @@ class Images
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $text = null;
 
+    #[ORM\ManyToOne(inversedBy: 'images')]
+    private ?Studio $studio = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,18 @@ class Images
     public function setText(?string $text): static
     {
         $this->text = $text;
+
+        return $this;
+    }
+
+    public function getStudio(): ?Studio
+    {
+        return $this->studio;
+    }
+
+    public function setStudio(?Studio $studio): static
+    {
+        $this->studio = $studio;
 
         return $this;
     }
