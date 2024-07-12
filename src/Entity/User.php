@@ -21,6 +21,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 180)]
     private ?string $username = null;
 
+    function __toString()
+    {
+        return $this->getUsername();
+    }
+
     /**
      * @var list<string> The user roles
      */

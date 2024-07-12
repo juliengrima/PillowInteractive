@@ -21,6 +21,7 @@ security:
                 login_path: app_login
                 check_path: app_login
                 enable_csrf: true
+                default_target_path: homepage
             logout:
                 path: app_logout
                 # where to redirect after logout
@@ -42,18 +43,18 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/admin, roles: ROLE_SUPER_ADMIN }
-        - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/profile, roles: ROLE_ADMIN }
         - { path: '^/admin/users', roles: ROLE_SUPER_ADMIN }
         # - { path: '^/register', roles: ROLE_SUPER_ADMIN }
-        - { path: '^/images', roles: ROLE_USER }
-        - { path: '^/plateform', roles: ROLE_USER }
-        - { path: '^/games/new', roles: ROLE_USER }
-        - { path: '^/games/edit', roles: ROLE_USER }
-        - { path: '^/games/delete', roles: ROLE_USER }
-        - { path: '^/studio/new', roles: ROLE_USER }
-        - { path: '^/studios/edit', roles: ROLE_USER }
-        - { path: '^/studio/delete', roles: ROLE_USER }
-        - { path: '^/newsletters/new', roles: ROLE_USER }
+        # - { path: '^/images', roles: ROLE_ADMIN }
+        # - { path: '^/plateform', roles: ROLE_ADMIN }
+        # - { path: '^/games/new', roles: ROLE_ADMIN }
+        # - { path: '^/games/edit', roles: ROLE_ADMIN }
+        # - { path: '^/games/delete', roles: ROLE_ADMIN }
+        # - { path: '^/studio/new', roles: ROLE_ADMIN }
+        # - { path: '^/studios/edit', roles: ROLE_ADMIN }
+        # - { path: '^/studio/delete', roles: ROLE_ADMIN }
+        # - { path: '^/newsletters/new', roles: ROLE_ADMIN }
 
 
     role_hierarchy:

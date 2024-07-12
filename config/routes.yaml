@@ -17,10 +17,14 @@ confidentialities:
     controller: App\Controller\HomeController::confidentialities
 
 # ADMINISTRATOR
+app_app_user_index:
+    path: /admin
+    controller: App\Controller\NewsLettersController::index
+    methods:  [GET]
 
 # NEWS LETTERS
 app_news_letters_index:
-    path: /newsletters
+    path: /admin/newsletters
     controller: App\Controller\NewsLettersController::index
     methods:  [GET]
 
@@ -41,12 +45,12 @@ app_games_index:
     methods:  [GET]
 
 app_games_new:
-    path: /games/new
+    path: /admin/games/new
     controller: App\Controller\GamesController::new
     methods:  [GET, POST]
 
 app_games_edit:
-    path: /games/{id}/edit
+    path: /admin/games/{id}/edit
     controller: App\Controller\GamesController::edit
     methods:  [GET, POST]
 
@@ -56,48 +60,48 @@ app_games_show:
     methods:  [GET]
 
 app_games_delete:
-    path: /games/{id}
+    path: /admin/games/{id}
     controller: App\Controller\GamesController::delete
     methods:  [GET, POST]
 
 # IMAGES
 app_images_index:
-    path: /images/
+    path: /admin/images/
     controller: App\Controller\ImagesController::index
     methods:  [GET]
 
 app_images_new:
-    path: /images/new
+    path: /admin/images/new
     controller: App\Controller\ImagesController::new
     methods:  [GET, POST]
 
 app_images_edit:
-    path: /images/{id}/edit
+    path: /admin/images/{id}/edit
     controller: App\Controller\ImagesController::edit
     methods:  [GET, POST]
 
 app_images_delete:
-    path: /images/{id}
+    path: /admin/images/{id}
     controller: App\Controller\ImagesController::delete
     methods: [GET, POST]
 # PlatForms
 app_plate_forms_index:
-    path: /plateform/
+    path: /admin/plateform/
     controller: App\Controller\PlateFormsController::index
     methods:  [GET]
 
 app_plate_forms_new:
-    path: /plateform/new
+    path: /admin/plateform/new
     controller: App\Controller\PlateFormsController::new
     methods:  [GET, POST]
 
 app_plate_forms_edit:
-    path: /plateform/{id}/edit
+    path: /admin/plateform/{id}/edit
     controller: App\Controller\PlateFormsController::edit
     methods:  [GET, POST]
 
 app_plate_forms_delete:
-    path: /plateform/{id}
+    path: /admin/plateform/{id}
     controller: App\Controller\PlateFormsController::delete
     methods: [GET, POST]
 
@@ -108,16 +112,16 @@ app_studio_index:
     methods:  [GET]
 
 app_studio_new:
-    path: /studio/new
+    path: /admin/studio/new
     controller: App\Controller\StudioController::new
     methods:  [GET, POST]
 
 app_studio_edit:
-    path: /studio/{id}/edit
+    path: /admin/studio/{id}/edit
     controller: App\Controller\StudioController::edit
     methods:  [GET, POST]
 
 app_studio_delete:
-    path: /studio/{id}
+    path: /admin/studio/{id}
     controller: App\Controller\StudioController::delete
     methods: [GET, POST]
