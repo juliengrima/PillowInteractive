@@ -1,6 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}{{'Login'|trans}}{% endblock %}
 
 {% block body %}
 <div class="relative-container">
@@ -44,14 +44,13 @@
                             <input type="text" id="username" name="username" value="{{ last_username }}" <input type="text" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="username" required autofocus>
                             </td>
                             <td>
-                                    <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+                            <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
                             </td>
                         </tr>
                     </tbody>
                 </table>
                 
-                <input type="hidden" name="_csrf_token"
-                    value="{{ csrf_token('authenticate') }}">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
                 {#
                     Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.

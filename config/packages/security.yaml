@@ -24,7 +24,7 @@ security:
             logout:
                 path: app_logout
                 # where to redirect after logout
-                # target: app_any_route
+                target: home
         #     http_basic:
         #         realm: Secured Area
 
@@ -45,11 +45,15 @@ security:
         - { path: ^/profile, roles: ROLE_USER }
         - { path: '^/admin/users', roles: ROLE_SUPER_ADMIN }
         # - { path: '^/register', roles: ROLE_SUPER_ADMIN }
-        - { path: '^/images', roles: ROLE_SUPER_ADMIN }
-        - { path: '^/plateform', roles: ROLE_SUPER_ADMIN }
-        - { path: '^/games/new', roles: ROLE_SUPER_ADMIN }
-        - { path: '^/games/edit', roles: ROLE_SUPER_ADMIN }
-        - { path: '^/games/delete', roles: ROLE_SUPER_ADMIN }
+        - { path: '^/images', roles: ROLE_USER }
+        - { path: '^/plateform', roles: ROLE_USER }
+        - { path: '^/games/new', roles: ROLE_USER }
+        - { path: '^/games/edit', roles: ROLE_USER }
+        - { path: '^/games/delete', roles: ROLE_USER }
+        - { path: '^/studio/new', roles: ROLE_USER }
+        - { path: '^/studios/edit', roles: ROLE_USER }
+        - { path: '^/studio/delete', roles: ROLE_USER }
+        - { path: '^/newsletters/new', roles: ROLE_USER }
 
 
     role_hierarchy:

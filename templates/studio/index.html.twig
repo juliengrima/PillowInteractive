@@ -9,7 +9,9 @@
             <figure class="text-center">
                 <blockquote class="blockquote">
                     <h1>{{'Our studio'|trans}}</h1>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('app_studio_new') }}" class="btn btn-success">{{ 'Add'|trans }}</a>
+                    {% endif %}
                 </blockquote>
             </figure>
             <div class="container-fluid">
@@ -46,10 +48,12 @@
                                 </div>
                             {% endif %}
                         </div>
+                        {% if is_granted('ROLE_ADMIN') %}
                         <div class="action-buttons">
                             <a href="{{ path('app_studio_edit', {'id': studio.id}) }}" class="btn btn-warning">{{ 'Edit'|trans }}</a>
                             {{ include('studio/_delete_form.html.twig', {'studio': studio}) }} 
                         </div>
+                        {% endif %}
                     </div>
                 {% else %}
                     <div class="no-records">

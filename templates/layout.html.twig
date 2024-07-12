@@ -31,6 +31,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="#" id="contactPopover" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="netherion-info@cybix-technology.com">contact</a>
               </li>
+              {% if is_granted('ROLE_ADMIN') %}
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ 'Dashboard'|trans }}
@@ -44,10 +45,11 @@
                     <li><a class="dropdown-item" href="{{ path('app_studio_new') }}">{{ 'New Studio page'|trans }}</a></li>
                     <li><a class="dropdown-item" href="{{ path('app_news_letters_index')}}">{{ 'Newsletter'|trans }}</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="{{ path('app_register') }}">{{ 'Register'|trans }}</a></li>
+                    <li><a class="dropdown-item" href="{{ path('app_register') }}">{{ 'New Admin'|trans }}</a></li>
                     <li><a class="dropdown-item" href="{{ path('app_logout') }}">{{ 'Logout'|trans }}</a></li>
                 </ul>
               </li>
+              {% endif %}
           </ul>
         </div>
     </div>
@@ -73,8 +75,8 @@
       <div class="text-center">
         <div class="col">   
         </div>
-        <div class="col">app_login
-          <p><a href="{{ path('app_login') }}"><i class="fa-regular fa-copyright"></a></i>Netherion Game. Tous droits réservés.</p>
+        <div class="col">
+          <p><a href="{{ path('app_login') }}"><i class="fa-regular fa-copyright"></a></i> Netherion Game. Tous droits réservés.</p>
         </div>
       </div>
     </div>

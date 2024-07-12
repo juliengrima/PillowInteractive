@@ -16,6 +16,8 @@ confidentialities:
     path: /confidentialities
     controller: App\Controller\HomeController::confidentialities
 
+# ADMINISTRATOR
+
 # NEWS LETTERS
 app_news_letters_index:
     path: /newsletters
