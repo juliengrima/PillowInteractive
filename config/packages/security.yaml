@@ -47,9 +47,9 @@ security:
         # - { path: '^/register', roles: ROLE_SUPER_ADMIN }
         - { path: '^/images', roles: ROLE_SUPER_ADMIN }
         - { path: '^/plateform', roles: ROLE_SUPER_ADMIN }
-        # - { path: '^/games/new', roles: ROLE_SUPER_ADMIN }
-        # - { path: '^/games/edit', roles: ROLE_SUPER_ADMIN }
-        # - { path: '^/games/delete', roles: ROLE_SUPER_ADMIN }
+        - { path: '^/games/new', roles: ROLE_SUPER_ADMIN }
+        - { path: '^/games/edit', roles: ROLE_SUPER_ADMIN }
+        - { path: '^/games/delete', roles: ROLE_SUPER_ADMIN }
 
 
     role_hierarchy:
