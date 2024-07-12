@@ -404,3 +404,30 @@ h2, p {
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
+
+/**************** LOGIN && REGISTER ***************/
+.form-container {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 50px; /* Adjust margin as needed */
+    min-height: 50vh;
+}
+
+.table-container {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 50px; /* Adjust margin as needed */
+}
+.form-table {
+    width: 100%;
+}
+.form-table td {
+    padding: 10px;
+    vertical-align: middle;
+}
