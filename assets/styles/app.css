@@ -27,9 +27,18 @@ a:hover {
     color: darkgray;
 }
 
+.table {
+    margin-bottom: 4%;
+}
+
 .footer-top {
     margin-top: 2%;
 }
+
+.bottom-p{
+    margin-bottom: 3%;
+}
+
 
 .text-muted {
     --bs-text-opacity: 1;
