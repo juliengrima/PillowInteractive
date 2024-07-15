@@ -55,7 +55,7 @@
         </table>
     </div>
 
-{% if is_granted('ROLE_ADMIN') %}
+{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN') %}
 <div class="action-buttons">
     <a href="{{ path('app_games_edit', {'id': game.id, 'name': game.name}) }}" class="btn btn-warning">{{ 'Edit'|trans }}</a>
     {% if is_granted('ROLE_SUPER_ADMIN') %}

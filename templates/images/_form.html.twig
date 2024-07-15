@@ -12,9 +12,26 @@
         <td>{{ form_label(form.title) }}</td>
         <td>{{ form_widget(form.title) }}</td>
      </tr>
-    <tr>
+     <tr>
+        <td>Section</td>
+        <td>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="choice" id="choice_game" value="game">
+                <label class="form-check-label" for="choice_game">{{ 'Game'|trans }}</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="choice" id="choice_studio" value="studio">
+                <label class="form-check-label" for="choice_studio">Studio</label>
+            </div>
+        </td>
+     </tr>
+    <tr id="form_game_row" style="display: none;">
         <td>{{ form_label(form.game) }}</td>
         <td>{{ form_widget(form.game) }}</td>
+    </tr>
+    <tr id="form_studio_row" style="display: none;">
+        <td>{{ form_label(form.studio) }}</td>
+        <td>{{ form_widget(form.studio) }}</td>
     </tr>
     <tr>
         <td>{{ form_label(form.text) }}</td>
@@ -23,3 +40,33 @@
 </table>
 <button class="btn btn-success">{{ button_label|default('Save'|trans) }}</button>
 {{ form_end(form) }}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get the radio buttons
+    const choiceGame = document.getElementById('choice_game');
+    const choiceStudio = document.getElementById('choice_studio');
+    
+    // Get the rows for game and studio
+    const formGameRow = document.getElementById('form_game_row');
+    const formStudioRow = document.getElementById('form_studio_row');
+    
+    // Function to show/hide rows based on the choice
+    function updateForm() {
+        if (choiceGame.checked) {
+            formGameRow.style.display = '';
+            formStudioRow.style.display = 'none';
+        } else if (choiceStudio.checked) {
+            formGameRow.style.display = 'none';
+            formStudioRow.style.display = '';
+        }
+    }
+
+    // Attach event listeners to radio buttons
+    choiceGame.addEventListener('change', updateForm);
+    choiceStudio.addEventListener('change', updateForm);
+    
+    // Initialize form state
+    updateForm();
+});
+</script>

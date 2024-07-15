@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Games;
 use App\Entity\Images;
+use App\Entity\Studio;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -41,6 +42,10 @@ class ImagesType extends AbstractType
             ->add('game', EntityType::class, [
                 'class' => Games::class,
                 'choice_label' => 'name',
+            ])
+            ->add('studio', EntityType::class, [
+                'class' => Studio::class,
+                'choice_label' => 'title',
             ])
             ->add('text', TextareaType::class, [
                 'label' => 'Text',
