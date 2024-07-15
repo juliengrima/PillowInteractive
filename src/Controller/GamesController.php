@@ -50,7 +50,7 @@ class GamesController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_games_edit', methods: ['GET', 'POST'])]
+    // #[Route('/{id}/edit', name: 'app_games_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Games $game, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(GamesType::class, $game);

@@ -44,3 +44,37 @@ $(document).ready(function(){
       return new bootstrap.Popover(popoverTriggerEl);
     });
   });
+
+/******** PRIVACY POLICY ********/
+
+  window.addEventListener('load', function() {
+    window.cookieconsent.initialise({
+        palette: {
+            popup: { background: "#000" },
+            button: { background: "#f1d600" }
+        },
+        theme: "classic",
+        content: {
+            message: "This website uses cookies to ensure you get the best experience on our website.",
+            dismiss: "Accept",
+            link: "Learn more",
+            href: "/privacy-policy"
+        },
+        type: 'opt-in', // Change to 'opt-in' for GDPR compliance
+        elements: {
+            messagelink: '<span id="cookieconsent:desc" class="cc-message">{{message}} <a aria-label="learn more about cookies" tabindex="0" class="cc-link" href="{{href}}" target="_blank">{{link}}</a></span>',
+            allow: '<button aria-label="allow cookies" tabindex="0" class="cc-btn cc-allow">{{dismiss}}</button>',
+            deny: '<button aria-label="deny cookies" tabindex="0" class="cc-btn cc-deny">Decline</button>',
+        },
+        onInitialise: function (status) {
+            if (status == cookieconsent.status.allow) myScripts();
+        },
+        onStatusChange: function(status, chosenBefore) {
+            if (status == cookieconsent.status.allow) myScripts();
+        },
+    });
+});
+
+function myScripts() {
+    // Your scripts that require cookies go here
+}

@@ -30,6 +30,9 @@ New Admin: Nouvel Admin
 Logout: Déconnexion
 Login: Connexion
 # ----------------- Users
+User: Utilisateur
+Administrator: Administrateur
+The King: Le roi
 Games: Jeux
 # ------ FOOTER
 Subscribe to the news letter: M'abonner à la news letter
@@ -60,3 +63,11 @@ Chief Technical Officer: Directeur technique
 Chief Executive Officer: Directeur général
 Username: Nom d'utilisateur
 Password: Mot de passe
+Agree terms: Accepter les conditions
+read the terms: lire les termes
+
+# ----------------- PRIVACY POLICY
+This website uses cookies to ensure you get the best experience.: Ce site Web utilise des cookies pour vous garantir la meilleure expérience.
+Learn more: En apprendre plus
+Accept: Accepter
+Decline: Refuser

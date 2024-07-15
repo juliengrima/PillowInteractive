@@ -38,6 +38,9 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">{{ 'Administrators'|trans }}</a></li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <li><a class="dropdown-item" href="{{ path('app_register') }}">{{ 'New Admin'|trans }}</a></li>
+                    {% endif %}
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="{{ path('app_images_index') }}">{{ 'Add Images'|trans }}</a></li>
                     <li><a class="dropdown-item" href="{{ path('app_plate_forms_index') }}">{{ 'Add Plate-form'|trans }}</a></li>
@@ -45,7 +48,6 @@
                     <li><a class="dropdown-item" href="{{ path('app_studio_new') }}">{{ 'New Studio page'|trans }}</a></li>
                     <li><a class="dropdown-item" href="{{ path('app_news_letters_index')}}">{{ 'Newsletter'|trans }}</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="{{ path('app_register') }}">{{ 'New Admin'|trans }}</a></li>
                     <li><a class="dropdown-item" href="{{ path('app_logout') }}">{{ 'Logout'|trans }}</a></li>
                 </ul>
               </li>

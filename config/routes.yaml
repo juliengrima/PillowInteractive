@@ -22,6 +22,12 @@ app_app_user_index:
     controller: App\Controller\NewsLettersController::index
     methods:  [GET]
 
+# PRIVACY POLICY
+app_privacy_policy:
+    path: /privacy-policy
+    controller: App\Controller\PrivacyPolicyController::index
+    methods:  [GET]
+
 # NEWS LETTERS
 app_news_letters_index:
     path: /admin/newsletters
@@ -40,7 +46,7 @@ app_news_letters_delete:
 
 # GAMES
 app_games_index:
-    path: /games/
+    path: /admin/games/
     controller: App\Controller\GamesController::index
     methods:  [GET]
 

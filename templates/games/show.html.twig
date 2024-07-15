@@ -58,7 +58,9 @@
 {% if is_granted('ROLE_ADMIN') %}
 <div class="action-buttons">
     <a href="{{ path('app_games_edit', {'id': game.id, 'name': game.name}) }}" class="btn btn-warning">{{ 'Edit'|trans }}</a>
-    {{ include('games/_delete_form.html.twig', {'game': game}) }}
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+        {{ include('games/_delete_form.html.twig', {'game': game}) }}
+    {% endif %}
 </div>
 {% endif %}
 {% endblock %}

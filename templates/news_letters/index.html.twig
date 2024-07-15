@@ -24,9 +24,11 @@
                     <tr>
                         <td>{{ news_letter.id }}</td>
                         <td>{{ news_letter.email }}</td>
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
                         <td>
                             {{ include('news_letters/_delete_form.html.twig', {'news_letter': news_letter}) }}
                         </td>
+                        {% endif %}
                     </tr>
                 {% else %}
                     <tr>
