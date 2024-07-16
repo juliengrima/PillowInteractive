@@ -41,7 +41,7 @@ Subscribe to the newsletter and stay tuned.: Abonnez-vous à la newsletter et re
 We will never share your email with others.: Nous ne partagerons jamais votre e-mail avec les autres.
 Enter your email: Entrez votre email
 Submit: Valider
-# ------ GAMES / NEWSLETTERS / IMAGES / PLATFORMS / STUDIO
+# ------ GAMES / NEWSLETTERS / IMAGES / PLATFORMS / STUDIO /USERS
 # ----------------- Index / New / Edit
 New game: Nouveau jeu 
 New Images: Nouvelle image
@@ -65,6 +65,9 @@ Username: Nom d'utilisateur
 Password: Mot de passe
 Agree terms: Accepter les conditions
 read the terms: lire les termes
+Users: Utilisateurs
+Roles: Rôles
+no records found: Pas d'enregistrements trouvés
 
 # ----------------- PRIVACY POLICY
 This website uses cookies to ensure you get the best experience.: Ce site Web utilise des cookies pour vous garantir la meilleure expérience.

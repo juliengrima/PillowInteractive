@@ -47,7 +47,7 @@
                         <td>
                             <div class="action-buttons">
                                 <a href="{{ path('app_images_edit', {'id': image.id}) }}" class="btn btn-warning">{{ 'Edit'|trans }}</a>
-                                {% if is_granted('ROLE_SUPER_ADMIN') %} 
+                                {% if is_granted('ROLE_SUPER_ADMIN') %}
                                     {{ include('images/_delete_form.html.twig', {'images': images}) }}
                                 {% endif %}
                             </div>

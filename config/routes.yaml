@@ -40,7 +40,7 @@ app_news_letters_new:
     methods:  [GET, POST]
 
 app_news_letters_delete:
-    path: /newsletters/{id}
+    path: /admin/newsletters/{id}
     controller: App\Controller\NewsLettersController::delete
     methods:  [GET, POST]
 

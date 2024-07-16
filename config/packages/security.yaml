@@ -46,14 +46,14 @@ security:
         - { path: ^/profile, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
         - { path: '^/admin/users', roles: ROLE_SUPER_ADMIN }
         - { path: '^/register', roles: ROLE_SUPER_ADMIN }
-        # - { path: '^/images', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
-        # - { path: '^/plateform', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
-        # - { path: '^/games/new', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
-        # - { path: '^/games/edit', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
-        # - { path: '^/games/delete', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
-        # - { path: '^/studio/new', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
-        # - { path: '^/studios/edit', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
-        # - { path: '^/studio/delete', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        - { path: '^/images', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        - { path: '^/plateform', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        - { path: '^/games/new', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        - { path: '^/games/edit', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        - { path: '^/games/delete', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        - { path: '^/studio/new', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        - { path: '^/studios/edit', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        - { path: '^/studio/delete', roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
 
 
     role_hierarchy:
