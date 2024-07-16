@@ -25,11 +25,11 @@
             </div>
         </td>
      </tr>
-    <tr id="form_game_row" style="display: none;">
+    <tr id="form_game_row" style="display: none;" data-toggle="game">
         <td>{{ form_label(form.game) }}</td>
         <td>{{ form_widget(form.game) }}</td>
     </tr>
-    <tr id="form_studio_row" style="display: none;">
+    <tr id="form_studio_row" style="display: none;" data-toggle="studio">
         <td>{{ form_label(form.studio) }}</td>
         <td>{{ form_widget(form.studio) }}</td>
     </tr>
@@ -42,31 +42,45 @@
 {{ form_end(form) }}
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    // Get the radio buttons
-    const choiceGame = document.getElementById('choice_game');
-    const choiceStudio = document.getElementById('choice_studio');
-    
-    // Get the rows for game and studio
-    const formGameRow = document.getElementById('form_game_row');
-    const formStudioRow = document.getElementById('form_studio_row');
-    
-    // Function to show/hide rows based on the choice
-    function updateForm() {
-        if (choiceGame.checked) {
-            formGameRow.style.display = '';
-            formStudioRow.style.display = 'none';
-        } else if (choiceStudio.checked) {
-            formGameRow.style.display = 'none';
-            formStudioRow.style.display = '';
+     document.addEventListener('DOMContentLoaded', function() {
+        // Get the radio buttons
+        const choiceGame = document.getElementById('choice_game');
+        const choiceStudio = document.getElementById('choice_studio');
+        
+        // Get the rows for game and studio
+        const formGameRow = document.getElementById('form_game_row');
+        const formStudioRow = document.getElementById('form_studio_row');
+        
+        // Function to show/hide rows based on the choice and clear the hidden fields
+        function updateForm() {
+            if (choiceGame.checked) {
+                formGameRow.style.display = '';
+                formStudioRow.style.display = 'none';
+                clearFields(formStudioRow);
+            } else if (choiceStudio.checked) {
+                formGameRow.style.display = 'none';
+                formStudioRow.style.display = '';
+                clearFields(formGameRow);
+            }
         }
-    }
-
-    // Attach event listeners to radio buttons
-    choiceGame.addEventListener('change', updateForm);
-    choiceStudio.addEventListener('change', updateForm);
-    
-    // Initialize form state
-    updateForm();
-});
+        
+        // Function to clear input fields within the hidden row
+        function clearFields(row) {
+            const inputs = row.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                if (input.type === 'radio' || input.type === 'checkbox') {
+                    input.checked = false;
+                } else {
+                    input.value = '';
+                }
+            });
+        }
+        
+        // Attach event listeners to radio buttons
+        choiceGame.addEventListener('change', updateForm);
+        choiceStudio.addEventListener('change', updateForm);
+        
+        // Initialize form state
+        updateForm();
+    });
 </script>

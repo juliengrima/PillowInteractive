@@ -28,7 +28,15 @@
                 {% for image in images %}
                     <tr>
                         <td>{{ image.id }}</td>
-                        <td>{{ image.game.name }}</td>
+                        <td>
+                        {% if image.game.name == null or image.studio.title == null %}
+                        X
+                        {% else if image.studio.title %}
+                        {{ image.studio.title }}
+                        {% else %}
+                        {{ image.game.name }}
+                        {% endif %}
+                        </td>
                         <td>{{ image.name }}</td>
                         <td>
                             <img src="{{ asset(image.link) }}" alt="{{ image.name }}" style="max-width: 100px; height: auto;">
