@@ -18,9 +18,29 @@ confidentialities:
 
 # ADMINISTRATOR
 app_app_user_index:
-    path: /admin
-    controller: App\Controller\NewsLettersController::index
+    path: /admin/users
+    controller: App\Controller\UserController::index
     methods:  [GET]
+
+app_user_new:
+    path: /admin/users/new
+    controller: App\Controller\UserController::new
+    methods:  [GET, POST]
+
+app_user_edit:
+    path: /admin/users/{id}/edit
+    controller: App\Controller\UserController::edit
+    methods:  [GET, POST]
+
+app_user_delete:
+    path: /admin/users/{id}
+    controller: App\Controller\UserController::delete
+    methods:  [GET, POST]
+
+app_register:
+    path: /admin/register
+    controller: App\Controller\RegistrationController::register
+    methods:  [GET, POST]
 
 # PRIVACY POLICY
 app_privacy_policy:

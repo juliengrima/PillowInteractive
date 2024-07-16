@@ -59,15 +59,14 @@
 {% endblock %}
 
 {% block footer %}
-  <div class="container bg-dark footer-top">
+  <div class="container bg-dark footer-bottom">
     <div class="row">
       <div class="col margin-footer-col">
       <a href="{{ path('app_news_letters_new') }}">{{ 'Subscribe to the news letter'|trans }}</a>
       </div>
-      <div class="col margin-footer-col">
+      <div class="col margin-footer-col bottom-p">
         <ul claas="list">
           <li class=""><a href="mailto:netherion-info@cybix-technology.com" id="contactPopover" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="netherion-info@cybix-technology.com">Contact</a></li>
-          {# <li class=""><a href="mailto:netherion-info@cybix-technology.com">Contact</a></li> #}
           <li class=""><a href="{{ path('conditions') }}">{{ 'Terms of Service'|trans }}</a></li>
           <li class=""><a href="{{ path('confidentialities') }}">{{ 'Privacy Policy'|trans }}</a></li>
         </ul>
@@ -75,8 +74,6 @@
     </div>
     <div clas="row">
       <div class="text-center">
-        <div class="col">   
-        </div>
         <div class="col">
           <p><a href="{{ path('app_login') }}"><i class="fa-regular fa-copyright"></a></i> Netherion Game. Tous droits réservés.</p>
         </div>

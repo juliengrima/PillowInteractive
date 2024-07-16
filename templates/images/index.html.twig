@@ -29,9 +29,9 @@
                     <tr>
                         <td>{{ image.id }}</td>
                         <td>
-                        {% if image.game.name == null or image.studio.title == null %}
+                        {% if image.game == null or image.studio == null %}
                         X
-                        {% else if image.studio.title %}
+                        {% elseif image.studio.title != null %}
                         {{ image.studio.title }}
                         {% else %}
                         {{ image.game.name }}
