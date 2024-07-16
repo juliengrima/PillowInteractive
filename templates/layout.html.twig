@@ -5,7 +5,8 @@
     <div class="container-fluid">
         <div>
             <a class="navbar-brand" href="{{asset('home')}}">
-            <img src="{{asset('images/logo-transparent.png')}}" alt="Logo" class="logo-image">
+            <img src="{{asset('images/logo3.png')}}" alt="Logo" class="logo-image">
+            <span class="text-center">Pillow Interactive</span>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -29,7 +30,7 @@
                 <a class="nav-link" href="{{ path('app_studio_index') }}">Studio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" id="contactPopover" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="netherion-info@cybix-technology.com">contact</a>
+                <a class="nav-link" href="#" id="contactPopover" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="contact@pillow-interactive.fr">contact</a>
               </li>
               {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN') %}
               <li class="nav-item dropdown">
@@ -66,7 +67,7 @@
       </div>
       <div class="col margin-footer-col bottom-p">
         <ul claas="list">
-          <li class=""><a href="mailto:netherion-info@cybix-technology.com" id="contactPopover" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="netherion-info@cybix-technology.com">Contact</a></li>
+          <li class=""><a href="mailto:netherion-info@cybix-technology.com" id="contactPopover" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="contact@pillow-interactive.fr">Contact</a></li>
           <li class=""><a href="{{ path('conditions') }}">{{ 'Terms of Service'|trans }}</a></li>
           <li class=""><a href="{{ path('confidentialities') }}">{{ 'Privacy Policy'|trans }}</a></li>
         </ul>
@@ -75,7 +76,7 @@
     <div clas="row">
       <div class="text-center">
         <div class="col">
-          <p><a href="{{ path('app_login') }}"><i class="fa-regular fa-copyright"></a></i> Netherion Game. Tous droits réservés.</p>
+          <p><a href="{{ path('app_login') }}"><i class="fa-regular fa-copyright"></a></i>Pillow Interactive. Tous droits réservés.</p>
         </div>
       </div>
     </div>
